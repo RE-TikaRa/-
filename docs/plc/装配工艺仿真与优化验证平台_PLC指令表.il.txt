@@ -1,0 +1,3000 @@
+ T11 M208
+418 +I II I[SETM104 ]+
+   QF>75       Q1G1
+M2 X6       K600
+421 +I II I+(T12 )+
+ ZLENPQ<PL
+     M7 M233    M105
+     +I II I()+
+    NLTJK QF<10    Q3K1
+      0     
+M2 X13        K600
+429 +I II I+(T13 )+
+ ZLENPQ>PH
+     M7 M208    M106
+     +I II I()+
+    NLTJK QF>75    Q1G2
+ T12  
+437 +I I+[SETM8 ]+
+ ERROR
+ T13 
+ +I I+  +
+440 +[MCRN1 ]+
+ X14 M2 M230     M108
+442 +I I+I I+I I()+
+ HOTGFZLEN QF>0     QG
+M615     K9000
+ +I I+  +(T30 )+
+ T30  
+452 +I I[SETM8 ]+
+ERROR
+ //
+ M2  K18000
+454 +I I(T31 )+
+ ZLEN 
+ X23  
+458 +I I[SETM23]+
+ XSQDW  HAVE
+XSQDW
+ T31 M23 M122X22     M120
+460 +I II II/II/I+()+
+   HAVELJZ LQS    L1G
+   XSQDW  BUZU
+ +[RSTM123 ]+
+       L1K
+       100%
+       K3000
+ +(T32 )+
+ M121X22
+469 +I II/I[SETM122 ]+
+ L1K LQS        LJZ
+   BUZU
+ T31 M23 X22 M122    M121
+472 +I II II II/I()+
+   HAVELQS LJZ     L1K
+   XSQDW BUZU     
+ T31 M122X23      K9000
+477 +I II II I(T33 )+
+   LJZ XSQDW     
+ T31 M122X23      K9000
+483 +I II II/I+(T34 )+
+   LJZ XSQDW    
+      +[RSTM23]+
+       HAVE
+       XSQDW
+      +[RSTM122 ]+
+LJZ
+ T33  
+491 +I I[SETM8 ]+
+ERROR
+ T34  
+493 +I I[SETM123 ]+
+L1K
+100%
+ M0 M5 X27      K9000
+495 +I II/II/I(T40 )+
+ AUTOWAITYCL     
+ RUN STOP
+ T40  
+501 +I I[SETM8 ]+
+ERROR
+ X16  K100
+503 +I I+(T41 )+
+ JJIN 
+ X20 
+ +I I+  +
+ LJSDW
+ X21 
+ +I I+  +
+ LS 
+ BUZU 
+ X22 
+ +I I+  +
+ LQS  
+ BUZU 
+ T41  
+510 +I I+[SETM8 ]+
+ ERROR
+ X11 
+ +I I+  +
+ OLLJB
+ X12 
+ +I I+  +
+ OLFSB 
+ M2  K24000
+514 +I I(T20 )+
+ ZLEN 
+ M2 X17
+518 +I II I+[SETM4 ]+
+ ZLENLSDW   XISI
+ M0  
+ +I/I+ +
+ AUTO 
+ RUN 
+ M8  
+ +I I+ +
+ ERROR 
+ M4       P  
+523 +I I+[MOVT20 D20]+
+ XISI  XISI
+ TIME
+ D20
+   +(T21 )+
+ M4 M230       M107
+532 +I II I()+
+ XISIQF>0       QCXG
+ T21  
+535 +I I+[SETM5 ]+
+ WAIT
+ STOP
+   +[RSTM4 ]+
+XISI
+ M5 M240       M115
+538 +I II I()+
+ WAITRF>0       RG
+ STOP 
+ X17 M0       K6000
+541 +I/II I(T22 )+
+ LSDWAUTO
+   RUN
+ X17 M0 M5      K6000
+546 +I/II II I(T23 )+
+ LSDWAUTOWAIT     
+   RUN STOP     
+ T22 M4
+552 +I I+I I[RSTM4 ]+
+   XISI       XISI
+ X5 
+ +I I+  +
+ TX>TS 
+ T23 M5
+556 +I I+I I[RSTM5 ]+
+   WAIT       WAIT
+   STOP       STOP
+ X5 
+ +I I+  +
+ TX>TS 
+124 +[END ]+
+  K241 RF=0 =0
+K242 RF<0 <0
+K243 RF<95 <95%
+K244 RF95 =95%
+K245 RF>95 >95%
+K250 LF>0 >0
+K251 LF=0 =0
+K252 LF<0 <0
+K253 LF<95 <95%
+K254 LF95 =95%
+K255 LF>95 >95%
+M500 K 
+0 +I/I+[DMOV 80  D200 ]+
+ONCE  QF25
+ TIMEK   
++[DMOV 160   D202 ]+
+ QF50
+ TIME
+ [DMOV 240   D204 ]+
+ QF75
+ TIME
+ [DMOV 320   D206 ]+
+ QF100
+ TIME
+ +[DMOV 80  D210 ]+
+ RF25
+ TIME [DMOV 160   D212 ]+
+ RF50 TIME +[DMOV 240   D214 ]+
+ RF75 TIME[DMOV 320   D216 ]+
+ RF100  TIME[DMOV 5   D230 ]+
+ PIAN
+ CA
++[SETM500 ]+
+ONCE
+ M8000 
+ 83 +I I+[DSUB D200  D230  D100 ]+
+ QF25  PIAN 
+ TIME  CA  
+ +[DADD D200  D230  D102 ]+
+ QF25  PIAN 
+ TIME  CA  
++[DSUB D202  D230  D104 ]+
+ QF50  PIAN 
+ TIME  CA  
+   +[DADD D202  D230  D106 ]+
+ QF50  PIAN 
+ TIME  CA  
+   +[DSUB D204  D230  D108 ]+
+ QF75  PIAN 
+ TIME  CA  
+   +[DADD D204  D230  D110 ]+
+ QF75  PIAN 
+ TIME  CA  
+   +[DSUB D206  D230  D112 ]+
+ QF100  PIAN 
+ TIME  CA  
+   +[DADD D206  D230  D114 ]+
+     QF100  PIAN 
+     TIME  CA  
+ M8000 
+188 +I I+[DSUB D210  D230  D120 ]+
+ RF25  PIAN 
+ TIME  CA  
+   +[DADD D210  D230  D122 ]+
+ RF25  PIAN 
+ TIME  CA  
+   +[DSUB D212  D230  D124 ]+
+ RF50  PIAN 
+ TIME  CA  
+   +[DADD D212  D230  D126 ]+
+ RF50  PIAN 
+ TIME  CA  
+   +[DSUB D214  D230  D128 ]+
+ RF75  PIAN 
+ TIME  CA  
+   +[DADD D214  D230  D130 ]+
+ RF75  PIAN 
+ TIME  CA  
+   +[DSUB D216  D230  D132 ]+
+ RF100  PIAN 
+ TIME  CA  
+   +[DADD D216  D230  D134 ]+
+     RF100  PIAN 
+     TIME  CA  
+ M30  K100
+293 +I/I+(T50 )+
+ READY INI
+ TIME
+   +[RSTC220 ]+
+ ZQF
+ TIME
+   +[RSTC221 ]+
+ RYF
+ TIME
+ M109
+   +()+
+ QFINI
+ M119
+   +()+
+ RFINI
+   T50
+   +I I[SETM30]+
+   INI        READY
+   TIME
+ X3 M30
+305 +I II I[MC N0 M400 ]+
+ AUTOREADY
+N0 M400 
+      +
+X1 X21 X22      
+310 +I II/II/I+[SETM0 ]+
+ RUN LS LQS     AUTO
+   BUZUBUZU  RUN
+      +[RSTM5 ]+
+       WAIT
+       STOP
+      +[RSTM4 ]+
+XISI
+ X2 
+316 +I I[RSTM0 ]+
+ STOP AUTO
+RUN
+ M8 M4 M5     
+318 +I II I+I/I[MC N1 M401 ]+
+ ERROR XISI WAIT     
+     STOP     
+ M8  
+ +I/I+ +
+ ERROR 
+N1 M401 
+      +
+M0 M4 M10      Y17
+325 +I/II I+I/I()+
+ AUTOXISI FSBT     FSB
+ RUN 
+ M0  
+ +I I+ +
+ AUTO 
+ RUN  
+ M0 M4 M5      Y15
+330 +I/II I+I/I+()+
+ AUTOXISI WAIT  RYB
+ RUN  STOP 
+ M0      K12000
+ +I I+  +(T0)+
+ AUTO 
+ RUN  
+ M0 T0 M5      M3
+338 +I II/II/I()+
+ AUTO  WAIT     ZLCU
+ RUN   STOP     
+ M0 M4       Y16
+342 +I/II I+()+
+ AUTOXISI   LJB
+ RUN 
+ T0   M0 M4    M2
+ +I I+I II/I()+
+    AUTOXISI    ZLEN
+    RUN      
+ Y15 M7       K18000
+349 +I I+I/I+(T1)+
+ RYBNLTJK
+M102   M0 M200    M102
+ +I I+  +I II I()+
+ Q2K   AUTOQF<25    Q2K
+    RUN      
+ T1 
+358 +I I[SETM7 ]+
+NLTJK
+ M5 
+360 +I I[RSTM7 ]+
+ WAIT NLTJK
+ STOP 
+ M4 X27 M3      M100
+362 +I/II/II I()+
+ XISIYCLZLCU     QJZK
+ M4 X27 M2 M208    M101
+366 +I/II/II II I()+
+ XISIYCLZLENQF>75    Q1G
+ X27 M243       M110
+371 +I/II I()+
+ YCLRF<10       R2K
+   0 
+ X27 X26 M213     M111
+374 +I II/II I()+
+ YCLYL RF<50      R1K
+ X27 X26 X25      M112
+378 +I II II/I()+
+ YCLYL YH      RJZ
+ X27 X26 X25 X24 M215  M113
+382 +I II II II/II I()+
+ YCLYL YH YCH RF>50   R1G
+X27 X26 X25 X24 M240  M114
+388 +I II II II I+I I()+
+ YCLYL YH YCHRF>0  R2G
+       K1200
+ +(T2)+
+M10 X26        M10
+399 +I II I+()+
+ FSBTYL       FSBT
+ T2  
+ +I I+ +
+ M7 X5       K6000
+403 +I II I+(T10 )+
+ NLTJK TX>TS
+     +[RSTM104 ]+
+Q1G1
+ T10 M233
+409 +I II I[SETM103 ]+
+   QF<10       Q3K
+   0 
+ M7 X5       K1200
+412 +I II/I+(T11 )+
+ NLTJK TX>TS
+     +[RSTM103 ]+
+Q3K
+ T11 M208
+418 +I II I[SETM104 ]+
+   QF>75       Q1G1
+ M2 X6       K600
+421 +I II I+(T12 )+
+ ZLENPQ<PL
+     M7 M233    M105
+     +I II I()+
+    NLTJK QF<10    Q3K1
+      0     
+ M2 X13        K600
+429 +I II I+(T13 )+
+ ZLENPQ>PH
+     M7 M208    M106
+     +I II I()+
+    NLTJK QF>75    Q1G2
+ T12  
+437 +I I+[SETM8 ]+
+ ERROR
+ T13 
+ +I I+  +
+440 +[MCRN1 ]+
+ X14 M2 M230     M108
+442 +I I+I I+I I()+
+ HOTGFZLEN QF>0     QG
+    
+    
+    
+ M615     K9000
+ +I I+  +(T30 )+
+ T30  
+452 +I I[SETM8 ]+
+ERROR
+ M2  K18000
+454 +I I(T31 )+
+ ZLEN 
+X23  
+458 +I I[SETM23]+
+ XSQDW  HAVE
+XSQDW
+ T31 M23 M122X22     M120
+460 +I II II/II/I+()+
+   HAVELJZ LQS    L1G
+   XSQDW  BUZU
+ +[RSTM123 ]+
+       L1K
+       100%
+       K3000
+ +(T32 )+
+ M121X22
+469 +I II/I[SETM122 ]+
+ L1K LQS        LJZ
+   BUZU
+ T31 M23 X22 M122    M121
+472 +I II II II/I()+
+   HAVELQS LJZ     L1K
+   XSQDW BUZU     
+ T31 M122X23      K9000
+477 +I II II I(T33 )+
+   LJZ XSQDW     
+ T31 M122X23      K9000
+483 +I II II/I+(T34 )+
+   LJZ XSQDW    
+      +[RSTM23]+
+       HAVE
+       XSQDW
+      +[RSTM122 ]+
+LJZ
+ T33  
+491 +I I[SETM8 ]+
+ERROR
+ T34  
+493 +I I[SETM123 ]+
+L1K
+100%
+ M0 M5 X27      K9000
+495 +I II/II/I(T40 )+
+ AUTOWAITYCL     
+ RUN STOP
+ T40  
+501 +I I[SETM8 ]+
+ERROR
+ X16  K100
+503 +I I+(T41 )+
+ JJIN 
+ X20 
+ +I I+  +
+ LJSDW
+ X21 
+ +I I+  +
+ LS 
+ BUZU 
+ X22 
+ +I I+  +
+ LQS  
+ BUZU 
+ T41  
+510 +I I+[SETM8 ]+
+ ERROR
+ X11 
+ +I I+  +
+ OLLJB
+ X12 
+ +I I+  +
+ OLFSB 
+ M2  K24000
+514 +I I(T20 )+
+ ZLEN 
+ M2 X17
+518 +I II I+[SETM4 ]+
+ ZLENLSDW   XISI
+ M0  
+ +I/I+ +
+ AUTO 
+ RUN 
+ M8  
+ +I I+ +
+ ERROR 
+ M4       P  
+523 +I I+[MOVT20 D20]+
+ XISI  XISI
+ TIME
+ D20
+   +(T21 )+
+ M4 M230       M107
+532 +I II I()+
+ XISIQF>0       QCXG
+ T21  
+535 +I I+[SETM5 ]+
+ WAIT
+ STOP
+RSTM4 ]+
+XISI
+ M5 M240       M115
+538 +I II I()+
+ WAITRF>0       RG
+ STOP 
+ X17 M0       K6000
+541 +I/II I(T22 )+
+ LSDWAUTO
+   RUN
+ X17 M0 M5      K6000
+546 +I/II II I(T23 )+
+ LSDWAUTOWAIT     
+   RUN STOP     
+ T22 M4
+552 +I I+I I[RSTM4 ]+
+   XISI       XISI
+ X5 
+ +I I+  +
+ TX>TS 
+ T23 M5
+556 +I I+I I[RSTM5 ]+
+   WAIT       WAIT
+   STOP       STOP
+ 
+ X5 
+ +I I+  +
+ TX>TS 
+ M8  K600
+560 +I I+(T42 )+
+ ERROR
+   +[RSTM0 ]+
+ AUTO
+ RUN
+     T42
+   +I/I[SETY0 ]+
+BELL
+T42 X4
+567 +I II I+[RSTY0 ]+
+   MUTE   BELL
+ +[RSTM8 ]+
+ERROR
+571 +[MCRN0 ]+
+ M8000 
+573 +I I+[DZCP D100  D102  C220  M200 ]+
+    ZQF   QF<25
+    TIME 
+  +[DZCP D104  D106  C220  M203 ]+
+    ZQF   QF<50
+    TIME 
+  +[DZCP D108  D110  C220  M206 ]+
+    ZQF   QF<75
+    TIME 
+  +[DZCP D112  D114  C220  M233 ]+
+    ZQF   QF<10
+    TIME  0
+    K   
+   +[DCMP C220  0   M230 ]+
+     ZQF      QF>0
+     TIME    
+ M8000 
+655 +I I+[DZCP D120  D122  C221  M210 ]+
+    RYF   RF<25
+    TIME 
+   +[DZCP D124  D126  C221  M213 ]+
+    RYF   RF<50
+    TIME 
+   +[DZCP D128  D130  C221  M216 ]+
+    RYF   RF<75
+    TIME 
+ZCP D132  D134  C221  M243 ]+
+    RYF   RF<10
+    TIME  0
+   
+   +[DCMP C221  0   M240 ]+
+     RYF      RF>0
+     TIME    
+ X0  M50
+737 +I I()+
+ ZQFK QFK F
+ F  
+15  M51
+739 +I I()+
+ ZQFG QFG F
+ F  
+ X7  M52
+741 +I I()+
+ RYFK RFK F
+ F  
+ X10  M53
+743 +I I()+
+ RYFG RFG F
+ F  
+ M51  M8220
+745 +I I()+
+ QFG F 
+ M50 M8012 M30     K6000000
+748 +I I+I/II I(C220 )+
+ QFK F READY    ZQF 
+      TIME
+ M51 
+ +I I+  +
+ QFG F 
+ M101M230M50      Y5
+757 +I I+I I+I/I()+
+ Q1GQF>0 QFK F      ZQFG
+    
+    
+    
+ M104  
+ +I I+   +
+ Q1G1  
+    
+    
+    
+ M106  
+ +I I+   +
+ Q1G2  
+    
+    
+    
+ M107  
+ +I I+   +
+ QCXG  
+    
+ M108  
+ +I I+   +
+ QG  
+  
+ M100  
+ +I I+   +
+ QJZK 
+ M30 M109
+ +I/II I+ +
+ READY QFINI
+ M102M51 M100M107M108M235M30       Y3
+769 +I I+I/II/II/II/II/II I()+
+ Q2KQFG F QJZKQCXGQG QF>10 READY       ZQFK
+     0  
+ M103 
+ +I I+  +
+ Q3K 
+ M105 
+ +I I+  +
+ Q3K1 
+ 
+ M53  M8221
+779 +I I()+
+ RFG F 
+ M52 M8012 M30     K6000000
+782 +I I+I II I(C221 )+
+ RFK F READY    RYF 
+      TIME
+ 
+ M53 
+ +I I+  +
+ RFG F 
+  M113M240M52      Y2
+791 +I I+I I+I/I()+
+ R1GRF>0 RFK F      RYFG
+   
+M115  
+ +I I+   +
+ RG  
+  
+ M114  
+ +I I+   +
+ R2G 
+ M30 M119
+ +I/II I+ +
+ READY RFINI
+ M110M53 M112M245M30 M115 Y1
+800 +I I+I/II/II/II II/I()+
+ R2KRFG F RJZ RF>10 READY RG RYFK
+  0
+ M111 
+ +I I+  +
+ R1K  
+ M0  Y10
+808 +I/I+()+
+ AUTO     DSTOP
+ RUN 
+ M0 M5 M8013    
+ +I II II I+      +
+ AUTOWAIT
+ RUN STOP
+ M2  Y11
+814 +I I+()+
+ ZLEN     DCOOL
+ M3 M8013
+ +I II I+ +
+ ZLCU 
+ M4 X3       Y12
+819 +I II I()+
+ XISIAUTO       DXISI
+ X3 M0 M8013 M8    Y13
+822 +I II/II I+I/I()+
+ AUTOAUTO  ERROR    DAUTO
+   RUN
+  M2     
+ +I I+      +
+ ZLEN    
+M3     
+ +I I+      +
+ ZLCU    
+ M4 M8013
+ +I II I+      +
+ XISI    
+ M5 M0 Y10     
+ +I II II/I+      +
+ WAITAUTODSTOP     
+ STOPRUN 
+ X3 X21 X22 X1 M30   
+836 +I/II/II/II II I[SETM1 ]+
+ AUTOLS LQS RUN READY   HAND
+   BUZUBUZU     RUN
+ X2 
+842 +I I+[RSTM1 ]+
+ STOP  HAND
+ RUN
+   X3 
+ +I I+  +
+ AUTO 
+  X3 M30 M1      Y4
+845 +I/II I+I I()+
+ AUTOREADYHAND     HAND
+     RUN      ZQF
+   Y14
+     +()+
+HAND
+BENG
+852 +[END ]+
+   +[DSUB D216  D230  D132 ]+
+ RF100  PIAN 
+ TIME  CA  
+   +[DADD D216  D230  D134 ]+
+     RF100  PIAN 
+     TIME  CA  
+ M30  K100
+293 +I/I+(T50 )+
+ READY INI
+ TIME
+   +[RSTC220 ]+
+ ZQF
+ TIME
+   +[RSTC221 ]+
+ RYF
+ TIME
+ M109
+   +()+
+ QFINI
+ M119
+   +()+
+ RFINI
+   T50
+   +I I[SETM30]+
+   INI        READY
+   TIME
+ X3 M30
+305 +I II I[MC N0 M400 ]+
+ AUTOREADY
+N0 M400 
+      +
+    
+ X1 X21 X22      
+310 +I II/II/I+[SETM0 ]+
+ RUN LS LQS     AUTO
+   BUZUBUZU  RUN
+      +[RSTM5 ]+
+       WAIT
+       STOP
+      +[RSTM4 ]+
+XISI
+ X2 
+316 +I I[RSTM0 ]+
+ STOP AUTO
+RUN
+ M8 M4 M5     
+318 +I II I+I/I[MC N1 M401 ]+
+ ERROR XISI WAIT     
+     STOP     
+ M8  
+ +I/I+ +
+ ERROR 
+N1 M401 
+      +
+    
+ M0 M4 M10      Y17
+325 +I/II I+I/I()+
+ AUTOXISI FSBT     FSB
+ RUN 
+ M0  
+ +I I+ +
+ AUTO 
+ RUN  
+ M0 M4 M5      Y15
+330 +I/II I+I/I+()+
+ AUTOXISI WAIT  RYB
+ RUN  STOP 
+ M0      K12000
+ +I I+  +(T0)+
+ AUTO 
+ RUN  
+ M0 T0 M5      M3
+338 +I II/II/I()+
+ AUTO  WAIT     ZLCU
+ RUN   STOP     
+ M0 M4       Y16
+342 +I/II I+()+
+ AUTOXISI   LJB
+ RUN 
+ T0   M0 M4    M2
+ +I I+I II/I()+
+    AUTOXISI    ZLEN
+    RUN      
+ Y15 M7       K18000
+349 +I I+I/I+(T1)+
+ RYBNLTJK
+    
+    
+    
+ M102   M0 M200    M102
+ +I I+  +I II I()+
+ Q2K   AUTOQF<25    Q2K
+    RUN      
+ T1 
+358 +I I[SETM7 ]+
+NLTJK
+ M5 
+360 +I I[RSTM7 ]+
+ WAIT NLTJK
+ STOP 
+ M4 X27 M3      M100
+362 +I/II/II I()+
+ XISIYCLZLCU     QJZK
+ M4 X27 M2 M208    M101
+366 +I/II/II II I()+
+ XISIYCLZLENQF>75    Q1G
+ X27 M243       M110
+371 +I/II I()+
+ YCLRF<10       R2K
+   0 
+ X27 X26 M213     M111
+374 +I II/II I()+
+ YCLYL RF<50      R1K
+ X27 X26 X25      M112
+378 +I II II/I()+
+ YCLYL YH      RJZ
+ X27 X26 X25 X24 M215  M113
+382 +I II II II/II I()+
+ YCLYL YH YCH RF>50   R1G
+ X27 X26 X25 X24 M240  M114
+388 +I II II II I+I I()+
+ YCLYL YH YCHRF>0  R2G
+       K1200
+ +(T2)+
+ M10 X26        M10
+399 +I II I+()+
+ FSBTYL       FSBT
+ T2  
+ +I I+ +
+ M7 X5       K6000
+403 +I II I+(T10 )+
+ NLTJK TX>TS
+     +[RSTM104 ]+
+Q1G1
+ T10 M233
+409 +I II I[SETM103 ]+
+   QF<10       Q3K
+   0 
+ M7 X5       K1200
+412 +I II/I+(T11 )+
+ NLTJK TX>TS
+     +[RSTM103 ]+
+Q3K
+ T11 M208
+418 +I II I[SETM104 ]+
+   QF>75       Q1G1
+ M2 X6       K600
+421 +I II I+(T12 )+
+ ZLENPQ<PL
+     M7 M233    M105
+     +I II I()+
+    NLTJK QF<10    Q3K1
+      0     
+ M2 X13        K600
+429 +I II I+(T13 )+
+ ZLENPQ>PH
+     M7 M208    M106
+     +I II I()+
+    NLTJK QF>75    Q1G2
+ T12  
+437 +I I+[SETM8 ]+
+ ERROR
+ T13 
+ +I I+  +
+440 +[MCRN1 ]+
+ X14 M2 M230     M108
+442 +I I+I I+I I()+
+ HOTGFZLEN QF>0     QG
+    
+    
+    
+ M615     K9000
+ +I I+  +(T30 )+
+ T30  
+452 +I I[SETM8 ]+
+ERROR
+ M2  K18000
+454 +I I(T31 )+
+ ZLEN 
+ X23  
+458 +I I[SETM23]+
+ XSQDW  HAVE
+XSQDW
+ T31 M23 M122X22     M120
+460 +I II II/II/I+()+
+   HAVELJZ LQS    L1G
+   XSQDW  BUZU
+ +[RSTM123 ]+
+       L1K
+       100%
+       K3000
+ +(T32 )+
+ M121X22
+469 +I II/I[SETM122 ]+
+ L1K LQS        LJZ
+   BUZU
+ T31 M23 X22 M122    M121
+472 +I II II II/I()+
+   HAVELQS LJZ     L1K
+   XSQDW BUZU     
+ T31 M122X23      K9000
+477 +I II II I(T33 )+
+   LJZ XSQDW     
+ T31 M122X23      K9000
+483 +I II II/I+(T34 )+
+   LJZ XSQDW    
+      +[RSTM23]+
+       HAVE
+       XSQDW
+      +[RSTM122 ]+
+LJZ
+ T33  
+491 +I I[SETM8 ]+
+ERROR
+ T34  
+493 +I I[SETM123 ]+
+L1K
+100%
+ M0 M5 X27      K9000
+495 +I II/II/I(T40 )+
+ AUTOWAITYCL     
+ RUN STOP
+ 	MOV	R0,#ADCDateMed
+		CLR	C
+		MOV	A,@R0
+		RRC	A
+		MOV	@R0,A
+		INC	R0
+		MOV	A,@R0
+		RRC	A
+		MOV	@R0,A
+ T40  
+501 +I I[SETM8 ]+
+ERROR
+ X16  K100
+503 +I I+(T41 )+
+ JJIN 
+ X20 
+ +I I+  +
+ LJSDW
+ X21 
+ +I I+  +
+ LS 
+ BUZU 
+ X22 
+ +I I+  +
+ LQS  
+ BUZU 
+ T41  
+510 +I I+[SETM8 ]+
+ ERROR
+ X11 
+ +I I+  +
+ OLLJB
+ X12 
+ +I I+  +
+ OLFSB 
+ M2  K24000
+514 +I I(T20 )+
+ ZLEN 
+ M2 X17
+518 +I II I+[SETM4 ]+
+ ZLENLSDW   XISI
+ M0  
+ +I/I+ +
+ AUTO 
+ RUN 
+ M8  
+ +I I+ +
+ ERROR 
+ M4       P  
+523 +I I+[MOVT20 D20]+
+ XISI  XISI
+ TIME
+ D20
+   +(T21 )+
+ M4 M230       M107
+532 +I II I()+
+ XISIQF>0       QCXG
+ T21  
+535 +I I+[SETM5 ]+
+ WAIT
+ STOP
+   +[RSTM4 ]+
+XISI
+ M5 M240       M115
+538 +I II I()+
+ WAITRF>0       RG
+ STOP 
+ X17 M0       K6000
+541 +I/II I(T22 )+
+ LSDWAUTO
+   RUN
+ X17 M0 M5      K6000
+546 +I/II II I(T23 )+
+ LSDWAUTOWAIT     
+   RUN STOP     
+ T22 M4
+552 +I I+I I[RSTM4 ]+
+   XISI       XISI
+ X5 
+ +I I+  +
+ TX>TS 
+ T23 M5
+556 +I I+I I[RSTM5 ]+
+   WAIT       WAIT
+   STOP       STOP
+  $SAVE
+$NOLIST
+;
+; BYTE Registers
+TL3     DATA    84H
+TH3     DATA  	85H
+CKCON	DATA    8EH
+CKCON1	DATA	8FH
+EXIF    DATA   	91H
+P4CONA  DATA   	92H
+P4CONB  DATA    93H
+P40AL   DATA   	94H
+P40AH   DATA   	95H
+P41AL   DATA  	96H
+P41AH   DATA   	97H
+P42AL   DATA   	9AH
+P42AH   DATA   	9BH
+P43AL   DATA   	9CH
+P43AH   DATA   	9DH
+NVMCON  DATA   	9EH
+CHPCON  DATA   	9FH
+PWMCON4 DATA  	0E7H
+EIE     DATA  	0E8H
+I2CON 	DATA    0E9H
+I2ADDR  DATA 	0EAH
+NVMADDRH  DATA 	0EBH
+I2DAT 	DATA    0ECH
+I2STATUS  DATA 	0EDH
+I2CLK 	DATA    0EEH
+I2TIMER DATA	0EFH
+SPCR    DATA  	0F3H
+SPSR    DATA  	0F4H
+SPDR    DATA   	0F5H
+I2CSADEN  DATA 	0F6H
+EIPH    DATA  	0F7H
+EIP     DATA 	0F8H
+EIE1    DATA 	0F9H
+EIP1    DATA 	0FAH
+CCL0    DATA 	0FBH
+PCNTL   DATA 	0FBH
+CCH0    DATA 	0FCH
+PCNTH   DATA 	0FCH
+CCL1    DATA 	0FDH
+PLSCNTL DATA   	0FDH
+CCH1    DATA 	0FEH
+PLSCNTH DATA   	0FEH
+INTCTRL DATA	0FFH
+; BIT Registers
+; PSW
+F1      BIT    PSW.1
+; TCON
+; IE
+EADC    BIT    IE.6
+ET2     BIT    IE.5
+; IP
+PADC    BIT    IP.6
+PT2     BIT    IP.5
+; P0
+INT5    BIT    P0.7
+INT4    BIT    P0.6
+INT3    BIT    P0.5
+INT2    BIT    P0.4
+SS      BIT    P0.3
+SPCLK   BIT    P0.2
+MOSI    BIT    P0.1
+MISO    BIT    P0.0
+; P1
+ADC7    BIT    P1.7
+ADC6    BIT    P1.6
+ADC5    BIT    P1.5
+ADC4    BIT    P1.4
+ADC3    BIT    P1.3
+TXD1    BIT    P1.3
+ADC2    BIT    P1.2
+RXD1    BIT    P1.2
+ADC1    BIT    P1.1
+BRAKE   BIT    P1.1
+ADC0    BIT    P1.0
+T2      BIT    P1.0
+; P2
+SDA     BIT    P2.7
+SDL     BIT    P2.6
+PWM5    BIT    P2.5
+PWM4    BIT    P2.4
+PWM3    BIT    P2.3
+PWM2    BIT    P2.2
+PWM1    BIT    P2.1
+PWM0    BIT    P2.0
+; P3
+IC1     BIT    P3.5
+QEB     BIT    P3.5
+TO      BIT    P3.4
+TCO     BIT    P3.4
+QEA     BIT    P3.4
+TXD0    BIT    P3.1
+RXD0    BIT    P3.0
+; SCON1
+SM0_1   BIT    SCON1.7
+FE_1    BIT    SCON1.7
+SM1_1   BIT    SCON1.6
+SM2_1   BIT    SCON1.5
+REN_1   BIT    SCON1.4
+TB8_1   BIT    SCON1.3
+RB8_1   BIT    SCON1.2
+TI_1    BIT    SCON1.1
+RI_1    BIT    SCON1.0
+; T2CON
+TF2     BIT    T2CON.7
+EXF2    BIT    T2CON.6
+RCLK    BIT    T2CON.5
+TCLK    BIT    T2CON.4
+EXEN2   BIT    T2CON.3
+TR2     BIT    T2CON.2
+C_T2    BIT    T2CON.1
+CP_RL2  BIT    T2CON.0
+; WDCON
+POR     BIT    WDCON.6
+WDIF    BIT    WDCON.3
+WTRF    BIT    WDCON.2
+EWT     BIT    WDCON.1
+RWT     BIT    WDCON.0
+; EIE
+EWDI	BIT    EIE.4	   		
+; EIP
+		BitLed		EQU	20H			;		
+SetLed		EQU	04H			;
+		BitLedSteady	EQU	02H			;		BitLedZero	EQU	03H			;
+		YellowLed 	EQU	01H	        	;
+		RedLed		EQU	00H        		;
+	
+                					
+		BitOddEven	EQU	08H
+                BitWgFirst	EQU	BitOddEven+1
+                BitOddEven1	EQU	BitWgFirst+1
+                BitWgFirst1	EQU	BitOddEven1+1
+                BitWg1YX	EQU	BitWgFirst1+1		;
+                BitWg2YX	EQU	BitWg1YX+1		;
+                MEM_ERR		EQU	BitWg2YX+1
+		ESBit		EQU	MEM_ERR+1
+		ES1Bit		EQU	ESBit+1
+		GssHighSigh	EQU	ES1Bit+1
+	
+                IntAddAd        EQU     08H
+                IntCount        EQU     09H
+		
+		Zero		EQU	30H
+		Slope		EQU	Zero+3
+		Gradutor	EQU	Slope+4
+		DotNum		EQU	Gradutor+1
+		ZeroLimit	EQU	DotNum+1
+		FreqSteadyLimit	EQU	ZeroLimit+1
+		SPAN		EQU	FreqSteadyLimit+2		;
+		GssZero		EQU	SPAN+4				;
+		GssSlope	EQU	GssZero+2			;
+		MachineNo	EQU	GssSlope+4
+		GssHighSlope	EQU	MachineNo+1
+		CheckSum	EQU	GssHighSlope+4
+		DISP1	        EQU	CheckSum+1		;
+		DISP2	        EQU	DISP1+1
+		DISP3	        EQU	DISP2+1
+		DISP4	        EQU	DISP3+1
+		DISP5	        EQU	DISP4+1
+		DISP6	        EQU	DISP5+1
+		D 		EQU	DISP6+1		;
+		K		EQU	D+1
+		M 		EQU	K+1
+                AdPj            EQU     M+1
+                WgCounter       EQU     AdPj+3
+                OddCont		EQU	WgCounter+1
+                EvenCont	EQU	OddCont+1
+                WgAdd		EQU	EvenCont+1
+		WgAddBak	EQU	WgAdd+4
+		WgCounter1      EQU     WgAddBak+3
+                OddCont1	EQU	WgCounter1+1
+                EvenCont1	EQU	OddCont1+1
+                WgAdd1		EQU	EvenCont1+1
+		WgAddBak1	EQU	WgAdd1+4
+		AverageCounter	EQU	WgAddBak1+3
+		RecCounter	EQU	AverageCounter+1
+		ResCounter	EQU	RecCounter+1
+		SteadyCounter	EQU	ResCounter+1
+		Bell_Counter	EQU	SteadyCounter+1
+		Relay_Counter	EQU	Bell_Counter+1
+		OldKeyNo	EQU	Relay_Counter+1
+		FunctionNo	EQU	OldKeyNo+1		;
+		FlashBit	EQU	FunctionNo+1		;
+		FlashBitB	EQU	FlashBit+1		;
+		FlashTimer	EQU	FlashBitB+1
+		ZeroCount	EQU	FlashTimer+1
+		SetBitNo	EQU	ZeroCount+1
+		GssHigh		EQU	SetBitNo+1
+		ADCDateNo	EQU	GssHigh+1
+		LookNo		EQU	ADCDateNo+1
+		WeiGen0No	EQU	LookNo+1
+		WeiGen1No	EQU	WeiGen0No+1
+Mov_Key:
+	        JNB	WeighSet_Bit,Mov_Key1
+	        MOV	A,LookNo
+	        JZ	ClrZero_Key
+		RET
+Mov_Key1:
+		MOV	A,FunctionNo
+		CJNE	A,#07H,Mov_Key5
+		RET
+Mov_Key5:
+		CJNE	A,#00H,Mov_Key6
+		RET
+Mov_Key6:
+		CJNE	A,#09H,Mov_Key7
+		RET
+Mov_Key7:
+		CJNE	A,#0AH,Mov_Key3
+		RET
+Mov_Key3:
+		MOV	A,#Disp6
+		CLR	C
+		SUBB	A,FlashBit
+		MOV	R0,A
+		MOV	@R0,FlashBitB
+		INC	FlashBit
+		MOV	A,FlashBit
+		CJNE	A,SetBitNo,Mov_Key4
+		MOV	FlashBit,#00H
+Mov_Key4:
+		MOV	A,#Disp6
+		CLR	C
+		SUBB	A,FlashBit
+		MOV	R0,A
+		MOV	FlashBitB,@R0
+		SETB    Bell
+		MOV	M,#25
+		LCALL	DELAY_XS
+		CLR	Bell
+		RET
+ClrZero_Key:
+		MOV	A,FunctionNo
+		JZ	ClrZero_Key2
+ClrZero_Key3:
+		RET
+ClrZero_Key2:
+		JNB	BitLedSteady,ClrZero_Key3
+		MOV	R0,#SendWeight
+		MOV	R1,#FloatBak
+		MOV	R2,#4
+		CALL	DataTran
+		CALL	WeighAccount
+		MOV	R0,#SPAN
+		MOV	R1,#FWORK1
+		MOV	R2,#4
+		CALL	DataTran
+		MOV	R0,#FWORK2+1
+		MOV	@R0,#00H
+		INC	R0
+		MOV	@R0,#00H
+		INC	R0
+		MOV	@R0,ZeroLimit
+		CALL	BinaryToFloat2
+		CALL	FloatMul1
+		MOV	R0,#FWORK2
+		MOV	@R0,#07H
+		INC	R0
+		MOV	@R0,#64H
+		INC	R0
+		MOV	@R0,#00H
+		INC	R0
+		MOV	@R0,#00H
+		CALL	FloatDiv1
+		MOV	R0,#SendWeight
+		MOV	R1,#FWORK2
+		MOV	R2,#4
+		CALL	DataTran
+		CALL	FloatSub1
+		JB	F0,ClrZero_Key1
+		MOV	R0,#SendWeight
+		MOV	@R0,#80H
+		INC	R0
+		MOV	@R0,#00H
+		INC	R0
+		MOV	@R0,#00H
+		INC	R0
+		MOV	@R0,#00H
+		MOV	R0,#AdPj
+		MOV	R1,#Zero
+		MOV	R2,#3
+		CALL	DataTran
+		MOV	R0,#ADCDate
+		MOV	R1,#GssZero
+		MOV	R2,#2
+		CALL	DataTran
+		CALL	WeightFull
+		MOV	R0,#Zero
+		MOV	R2,#27
+		MOV	A,#00H
+ClrZero_Key4:		
+		ADD	A,@R0
+		INC	R0
+		DJNZ	R2,ClrZero_Key4
+		MOV	CheckSum,A
+		MOV	R0,#Zero
+		MOV	R1,#NVMZero
+		MOV	R2,#28
+		CALL	EepromSWrite
+		SETB    Bell
+		MOV	M,#25
+		LCALL	DELAY_XS
+		CLR	Bell
+		RET
+ClrZero_Key1:
+		MOV	R0,#FloatBak
+		MOV	R1,#SendWeight
+		MOV	R2,#4
+		CALL	DataTran
+		RET
+				
+Inc_Key:	
+		JNB	WeighSet_Bit,Inc_Key1
+		RET
+Inc_Key1:
+		MOV	A,FunctionNo
+		CJNE	A,#07H,Inc_Key8
+		RET
+Inc_Key8:
+		CJNE	A,#00H,Inc_Key9
+		RET
+Inc_Key9:
+		CJNE	A,#09H,Inc_Key10
+		RET
+Inc_Key10:
+		CJNE	A,#0AH,Inc_Key2
+		RET
+Inc_Key2:
+		MOV	A,FunctionNo
+		CJNE	A,#04H,Inc_Key4
+		MOV	A,FlashBitB
+		CJNE	A,#01H,Inc_Key5
+		ANL	FlashBitB,#0F0H
+		ORL	FlashBitB,#2
+		JMP	Inc_Key7
+Inc_Key5:	
+		CJNE	A,#02H,Inc_Key6
+		ANL	FlashBitB,#0F0H
+		ORL	FlashBitB,#5
+		JMP	Inc_Key7
+Inc_Key6:
+		ANL	FlashBitB,#0F0H
+		ORL	FlashBitB,#1
+		JMP	Inc_Key7
+Inc_Key4:
+		MOV	A,FlashBitB
+		ANL	A,#0FH
+		INC	A
+		CJNE	A,#0AH,Inc_Key3
+		MOV	A,#00H
+Inc_Key3:
+		ANL	FlashBitB,#0F0H
+		ORL	FlashBitB,A
+Inc_Key7:
+		SETB    Bell
+		MOV	M,#25
+		LCALL	DELAY_XS
+		CLR	Bell
+		RET
+		
+Inc_Key:	
+		JNB	WeighSet_Bit,Inc_Key1
+		RET
+Inc_Key1:
+		MOV	A,FunctionNo
+		CJNE	A,#07H,Inc_Key8
+		RET
+Inc_Key8:
+		CJNE	A,#00H,Inc_Key9
+		RET
+Inc_Key9:
+		CJNE	A,#09H,Inc_Key10
+		RET
+Inc_Key10:
+		CJNE	A,#0AH,Inc_Key2
+		RET
+Inc_Key2:
+		MOV	A,FunctionNo
+		CJNE	A,#04H,Inc_Key4
+		MOV	A,FlashBitB
+		CJNE	A,#01H,Inc_Key5
+		ANL	FlashBitB,#0F0H
+		ORL	FlashBitB,#2
+		JMP	Inc_Key7
+Inc_Key5:	
+		CJNE	A,#02H,Inc_Key6
+		ANL	FlashBitB,#0F0H
+		ORL	FlashBitB,#5
+		JMP	Inc_Key7
+Inc_Key6:
+		ANL	FlashBitB,#0F0H
+		ORL	FlashBitB,#1
+		JMP	Inc_Key7
+Inc_Key4:
+		MOV	A,FlashBitB
+		ANL	A,#0FH
+		INC	A
+		CJNE	A,#0AH,Inc_Key3
+		MOV	A,#00H
+Inc_Key3:
+		ANL	FlashBitB,#0F0H
+		ORL	FlashBitB,A
+Inc_Key7:
+		SETB    Bell
+		MOV	M,#25
+		LCALL	DELAY_XS
+		CLR	Bell
+		RET
+		
+Ini_KEY:
+		MOV	A,FunctionNo
+		CJNE	A,#00H,Ini_KEY1
+		JMP	IniSelf
+Ini_KEY1:
+		CJNE	A,#07H,Ini_KEY2
+		JMP	IniZero
+Ini_KEY2:
+		CJNE	A,#08H,Ini_KEY3
+		JMP	IniWeight
+Ini_KEY3:
+		RET
+	
+	
+IniSelf:
+		SETB	YellowLed
+		SETB	RedLed
+		MOV	R0,#Span			
+		MOV	R1,#FWORK1
+		MOV	R2,#4
+		CALL	DataTran
+		MOV	R0,#FWORK2
+		MOV	@R0,#01H
+		INC	R0
+		MOV	@R0,#53H
+		INC	R0
+		MOV	@R0,#33H
+		INC	R0
+		MOV	@R0,#33H
+		CALL	FloatMul1			;
+		CALL	FloatToBcd1
+		MOV	R0,#Fwork1+3
+		LCALL	SendDisp
+		CALL	ZEROdispose
+		CALL	XianShi
+		SETB	Relay
+		MOV	M,#0FFH
+		CALL	DELAY_XS
+		CLR	YellowLed
+		CLR	RedLed
+		CALL	XianShi
+		CLR	Relay
+		SETB	Bell
+		MOV	M,#100
+		CALL	Delay_Xs
+		CLR	Bell
+		RET
+	
+IniZero:	
+		MOV	ZeroCount,#0FFH
+		MOV	R0,#FWORK1
+		MOV	@R0,#00H
+		INC	R0
+		MOV	@R0,#00H
+		INC	R0
+		MOV	@R0,AdPj
+		INC	R0
+		MOV	@R0,AdPj+1
+		INC	R0
+		MOV	@R0,AdPj+2
+		MOV	Disp2,#1CH
+		MOV	Disp3,#1CH
+		MOV	Disp4,#1CH
+		MOV	Disp5,#1
+		MOV	Disp6,#5
+IniZero1:
+		LCALL   ADCAverage
+		MOV	R0,#FWORK2
+		MOV	@R0,#00H
+		INC	R0
+		MOV	@R0,#00H
+		INC	R0
+		MOV	@R0,AdPj
+		INC	R0
+		MOV	@R0,AdPj+1
+		INC	R0
+		MOV	@R0,AdPj+2		
+		MOV	R0,#FWORK1
+		MOV	R1,#FWORK2		
+		MOV	R7,#4
+		CALL	IntAdd		
+		MOV	M,#20
+		CALL	Delay_Xs
+		MOV	A,ZeroCount
+		ANL	A,#0FH
+		JNZ	IniZero2
+		MOV	A,Disp6
+		JNZ	IniZero3
+		MOV	Disp6,#9
+		MOV	Disp5,#0
+		JMP	IniZero2
+IniZero3:
+		DEC	Disp6
+IniZero2:
+		CALL	XianShi
+		DJNZ	ZeroCount,IniZero1
+		MOV	R0,#FWORK1+1
+		MOV	Zero,@R0
+		INC	R0
+		MOV	Zero+1,@R0
+		INC	R0
+		MOV	Zero+2,@R0
+		MOV	Disp2,#00H
+		MOV	Disp3,#00H
+		MOV	Disp4,#00H
+		MOV	Disp5,#00H
+		MOV	Disp6,#00H
+		MOV	A,#Disp6
+		CLR	C
+		SUBB	A,DotNum
+		MOV	R0,A
+		MOV	A,@R0
+		ADD	A,#10H
+		MOV	@R0,A
+		MOV	A,#5
+		CLR	C
+		SUBB	A,DotNum
+		DEC	A
+		MOV	R2,A
+		DEC	R0
+IniZero4:
+		MOV	@R0,#1CH
+		DEC	R0
+		DJNZ	R2,IniZero4
+		SETB    Bell
+		MOV	M,#25
+		LCALL	DELAY_XS
+		CLR	Bell
+		RET
+		
+IniWeight:
+		CALL	NoZBCDToBin
+		MOV	R0,#FWORK1
+		MOV	R1,#Slope
+		MOV	R2,#4
+		CALL	DataTran
+		MOV	ZeroCount,#0FFH
+		MOV	R0,#FWORK1
+		MOV	@R0,#00H
+		INC	R0
+		MOV	@R0,#00H
+		INC	R0
+		MOV	@R0,AdPj
+		INC	R0
+		MOV	@R0,AdPj+1
+		INC	R0
+		MOV	@R0,AdPj+2
+		MOV	Disp2,#1CH
+		MOV	Disp3,#1CH
+		MOV	Disp4,#1CH
+		MOV	Disp5,#1
+		MOV	Disp6,#5	
+IniWeight1:
+		LCALL   ADCAverage
+		MOV	R0,#FWORK2
+		MOV	@R0,#00H
+		INC	R0
+		MOV	@R0,#00H
+		INC	R0
+		MOV	@R0,AdPj
+		INC	R0
+		MOV	@R0,AdPj+1
+		INC	R0
+		MOV	@R0,AdPj+2		
+		MOV	R0,#FWORK1
+		MOV	R1,#FWORK2		
+		MOV	R7,#4
+		CALL	IntAdd		
+		MOV	M,#20
+		CALL	Delay_Xs
+		MOV	A,ZeroCount
+		ANL	A,#0FH
+		JNZ	IniWeight2
+		MOV	A,Disp6
+		JNZ	IniWeight3
+		MOV	Disp6,#9
+		MOV	Disp5,#0
+		JMP	IniWeight2
+IniWeight3:
+		DEC	Disp6
+IniWeight2:
+		CALL	XianShi
+		DJNZ	ZeroCount,IniWeight1
+		MOV	R0,#Zero
+		MOV	R1,#FWORK2+1
+		MOV	R2,#3
+		CALL	DataTran
+		MOV	R0,#FWORK1
+		MOV	R1,#FWORK2
+		MOV	R7,#3
+		CALL	IntSubb
+		CALL	BinaryToFloat1
+		MOV	R0,#FWORK1
+		MOV	R1,#FWORK2
+		MOV	R2,#4
+		CALL	DataTran
+		MOV	R0,#Slope
+		MOV	R1,#FWORK1
+		MOV	R2,#4
+		CALL	DataTran
+		CALL	BinToBcd1
+		MOV	R0,#Fwork1+3
+		LCALL	SendDisp
+		MOV	A,#Disp6
+AUTOWAITYCL     
+ RUN STOP
+ T40  
+501 +I I[SETM8 ]+
+ERROR
+ X16  K100
+503 +I I+(T41 )+
+ JJIN 
+ X20 
+ +I I+  +
+ LJSDW
+ X21 
+ +I I+  +
+ LS 
+ BUZU 
+ X22 
+ +I I+  +
+ LQS  
+ BUZU 
+ T41  
+510 +I I+[SETM8 ]+
+ ERROR
+ X11 
+ +I I+  +
+ OLLJB
+ X12 
+ +I I+  +
+ OLFSB 
+ M2  K24000
+514 +I I(T20 )+
+ ZLEN 
+ M2 X17
+518 +I II I+[SETM4 ]+
+ ZLENLSDW   XISI
+ M0  
+ +I/I+ +
+ AUTO 
+ RUN 
+ M8  
+ +I I+ +
+ ERROR 
+ M4       P  
+523 +I I+[MOVT20 D20]+
+ XISI  XISI
+ TIME
+ D20
+   +(T21 )+
+ M4 M230       M107
+532 +I II I()+
+ XISIQF>0       QCXG
+ T21  
+535 +I I+[SETM5 ]+
+ WAIT
+ STOP
+RSTM4 ]+
+XISI
+ M5 M240       M115
+538 +I II I()+
+ WAITRF>0       RG
+ STOP 
+ X17 M0       K6000
+541 +I/II I(T22 )+
+ LSDWAUTO
+   RUN
+ X17 M0 M5      K6000
+546 +I/II II I(T23 )+
+ LSDWAUTOWAIT     
+   RUN STOP     
+ T22 M4
+552 +I I+I I[RSTM4 ]+
+   XISI       XISI
+ X5 
+ +I I+  +
+ TX>TS 
+ T23 M5
+556 +I I+I I[RSTM5 ]+
+   WAIT       WAIT
+   STOP       STOP
+ 
+ X5 
+ +I I+  +
+ TX>TS 
+ M8  K600
+560 +I I+(T42 )+
+ ERROR
+   +[RSTM0 ]+
+ AUTO
+ RUN
+     T42
+   +I/I[SETY0 ]+
+BELL
+T42 X4
+567 +I II I+[RSTY0 ]+
+   MUTE   BELL
+ +[RSTM8 ]+
+ERROR
+571 +[MCRN0 ]+
+ M8000 
+573 +I I+[DZCP D100  D102  C220  M200 ]+
+    ZQF   QF<25
+    TIME 
+  +[DZCP D104  D106  C220  M203 ]+
+    ZQF   QF<50
+    TIME 
+  +[DZCP D108  D110  C220  M206 ]+
+    ZQF   QF<75
+    TIME 
+  +[DZCP D112  D114  C220  M233 ]+
+    ZQF   QF<10
+    TIME  0
+    K   
+   +[DCMP C220  0   M230 ]+
+     ZQF      QF>0
+     TIME    
+ M8000 
+655 +I I+[DZCP D120  D122  C221  M210 ]+
+    RYF   RF<25
+    TIME 
+   +[DZCP D124  D126  C221  M213 ]+
+    RYF   RF<50
+    TIME 
+   +[DZCP D128  D130  C221  M216 ]+
+    RYF   RF<75
+    TIME 
+ZCP D132  D134  C221  M243 ]+
+    RYF   RF<10
+    TIME  0
+   
+   +[DCMP C221  0   M240 ]+
+     RYF      RF>0
+     TIME    
+ X0  M50
+737 +I I()+
+ ZQFK QFK F
+ F  
+15  M51
+739 +I I()+
+ ZQFG QFG F
+ F  
+ X7  M52
+741 +I I()+
+ RYFK RFK F
+ F  
+ X10  M53
+743 +I I()+
+ RYFG RFG F
+ F  
+ M51  M8220
+745 +I I()+
+ QFG F 
+ M50 M8012 M30     K6000000
+748 +I I+I/II I(C220 )+
+ QFK F READY    ZQF 
+      TIME
+ M51 
+ +I I+  +
+ QFG F 
+ M101M230M50      Y5
+757 +I I+I I+I/I()+
+ Q1GQF>0 QFK F      ZQFG
+    
+    
+    
+ M104  
+ +I I+   +
+ Q1G1  
+    
+    
+    
+ M106  
+ +I I+   +
+ Q1G2  
+    
+    
+    
+ M107  
+ +I I+   +
+ QCXG  
+    
+ M108  
+ +I I+   +
+ QG  
+  
+ M100  
+ +I I+   +
+ QJZK 
+ M30 M109
+ +I/II I+ +
+ READY QFINI
+ M102M51 M100M107M108M235M30       Y3
+769 +I I+I/II/II/II/II/II I()+
+ Q2KQFG F QJZKQCXGQG QF>10 READY       ZQFK
+     0  
+ M103 
+ +I I+  +
+ Q3K 
+ M105 
+ +I I+  +
+ Q3K1 
+ 
+ M53  M8221
+779 +I I()+
+ RFG F 
+ M52 M8012 M30     K6000000
+782 +I I+I II I(C221 )+
+ RFK F READY    RYF 
+      TIME
+ 
+ M53 
+ +I I+  +
+ RFG F 
+  M113M240M52      Y2
+791 +I I+I I+I/I()+
+ R1GRF>0 RFK F      RYFG
+   
+M115  
+ +I I+   +
+ RG  
+  
+ M114  
+ +I I+   +
+ R2G 
+ M30 M119
+ +I/II I+ +
+ READY RFINI
+ M110M53 M112M245M30 M115 Y1
+800 +I I+I/II/II/II II/I()+
+ R2KRFG F RJZ RF>10 READY RG RYFK
+  0
+ M111 
+ +I I+  +
+ R1K  
+ M0  Y10
+808 +I/I+()+
+ AUTO     DSTOP
+ RUN 
+ M0 M5 M8013    
+ +I II II I+      +
+ AUTOWAIT
+ RUN STOP
+ M2  Y11
+814 +I I+()+
+ ZLEN     DCOOL
+ M3 M8013
+ +I II I+ +
+ ZLCU 
+ M4 X3       Y12
+819 +I II I()+
+ XISIAUTO       DXISI
+ X3 M0 M8013 M8    Y13
+822 +I II/II I+I/I()+
+ AUTOAUTO  ERROR    DAUTO
+   RUN
+  M2     
+ +I I+      +
+ ZLEN    
+M3     
+ +I I+      +
+ ZLCU    
+ M4 M8013
+ +I II I+      +
+ XISI    
+ M5 M0 Y10     
+ +I II II/I+      +
+ WAITAUTODSTOP     
+ STOPRUN 
+ X3 X21 X22 X1 M30   
+836 +I/II/II/II II I[SETM1 ]+
+ AUTOLS LQS RUN READY   HAND
+   BUZUBUZU     RUN
+ X2 
+842 +I I+[RSTM1 ]+
+ STOP  HAND
+ RUN
+   X3 
+ +I I+  +
+ AUTO 
+  X3 M30 M1      Y4
+845 +I/II I+I I()+
+ AUTOREADYHAND     HAND
+     RUN      ZQF
+   Y14
+     +()+
+HAND
+BENG
+852 +[END ]+
+   +[DSUB D216  D230  D132 ]+
+ RF100  PIAN 
+ TIME  CA  
+   +[DADD D216  D230  D134 ]+
+     RF100  PIAN 
+     TIME  CA  
+ M30  K100
+293 +I/I+(T50 )+
+ READY INI
+ TIME
+   +[RSTC220 ]+
+ ZQF
+ TIME
+   +[RSTC221 ]+
+ RYF
+ TIME
+ M109
+   +()+
+ QFINI
+ M119
+   +()+
+ RFINI
+   T50
+   +I I[SETM30]+
+   INI        READY
+   TIME
+ X3 M30
+305 +I II I[MC N0 M400 ]+
+ AUTOREADY
+N0 M400 
+      +
+    
+ X1 X21 X22      
+310 +I II/II/I+[SETM0 ]+
+ RUN LS LQS     AUTO
+   BUZUBUZU  RUN
+      +[RSTM5 ]+
+       WAIT
+       STOP
+      +[RSTM4 ]+
+XISI
+ X2 
+316 +I I[RSTM0 ]+
+ STOP AUTO
+RUN
+ M8 M4 M5     
+318 +I II I+I/I[MC N1 M401 ]+
+ ERROR XISI WAIT     
+     STOP     
+ M8  
+ +I/I+ +
+ ERROR 
+N1 M401 
+      +
+    
+ M0 M4 M10      Y17
+325 +I/II I+I/I()+
+ AUTOXISI FSBT     FSB
+ RUN 
+ M0  
+ +I I+ +
+ AUTO 
+ RUN  
+ M0 M4 M5      Y15
+330 +I/II I+I/I+()+
+ AUTOXISI WAIT  RYB
+ RUN  STOP 
+ M0      K12000
+ +I I+  +(T0)+
+ AUTO 
+ RUN  
+ M0 T0 M5      M3
+338 +I II/II/I()+
+ AUTO  WAIT     ZLCU
+ RUN   STOP     
+ M0 M4       Y16
+342 +I/II I+()+
+ AUTOXISI   LJB
+ RUN 
+ T0   M0 M4    M2
+ +I I+I II/I()+
+    AUTOXISI    ZLEN
+    RUN      
+ Y15 M7       K18000
+349 +I I+I/I+(T1)+
+ RYBNLTJK
+    
+    
+    
+ M102   M0 M200    M102
+ +I I+  +I II I()+
+ Q2K   AUTOQF<25    Q2K
+    RUN      
+ T1 
+358 +I I[SETM7 ]+
+NLTJK
+ M5 
+360 +I I[RSTM7 ]+
+ WAIT NLTJK
+ STOP 
+ M4 X27 M3      M100
+362 +I/II/II I()+
+ XISIYCLZLCU     QJZK
+ M4 X27 M2 M208    M101
+366 +I/II/II II I()+
+ XISIYCLZLENQF>75    Q1G
+ X27 M243       M110
+371 +I/II I()+
+ YCLRF<10       R2K
+   0 
+ X27 X26 M213     M111
+374 +I II/II I()+
+ YCLYL RF<50      R1K
+ X27 X26 X25      M112
+378 +I II II/I()+
+ YCLYL YH      RJZ
+ X27 X26 X25 X24 M215  M113
+382 +I II II II/II I()+
+ YCLYL YH YCH RF>50   R1G
+ X27 X26 X25 X24 M240  M114
+388 +I II II II I+I I()+
+ YCLYL YH YCHRF>0  R2G
+       K1200
+ +(T2)+
+ M10 X26        M10
+399 +I II I+()+
+ FSBTYL       FSBT
+ T2  
+ +I I+ +
+ M7 X5       K6000
+403 +I II I+(T10 )+
+ NLTJK TX>TS
+     +[RSTM104 ]+
+Q1G1
+ T10 M233
+409 +I II I[SETM103 ]+
+   QF<10       Q3K
+   0 
+ M7 X5       K1200
+412 +I II/I+(T11 )+
+ NLTJK TX>TS
+     +[RSTM103 ]+
+Q3K
+ T11 M208
+418 +I II I[SETM104 ]+
+   QF>75       Q1G1
+ M2 X6       K600
+421 +I II I+(T12 )+
+ ZLENPQ<PL
+     M7 M233    M105
+     +I II I()+
+    NLTJK QF<10    Q3K1
+      0     
+ M2 X13        K600
+429 +I II I+(T13 )+
+ ZLENPQ>PH
+     M7 M208    M106
+     +I II I()+
+    NLTJK QF>75    Q1G2
+ T12  
+437 +I I+[SETM8 ]+
+ ERROR
+ T13 
+ +I I+  +
+440 +[MCRN1 ]+
+ X14 M2 M230     M108
+442 +I I+I I+I I()+
+ HOTGFZLEN QF>0     QG
+    
+    
+    
+ M615     K9000
+ +I I+  +(T30 )+
+ T30  
+452 +I I[SETM8 ]+
+ERROR
+ M2  K18000
+454 +I I(T31 )+
+ ZLEN 
+ X23  
+458 +I I[SETM23]+
+ XSQDW  HAVE
+XSQDW
+ T31 M23 M122X22     M120
+460 +I II II/II/I+()+
+   HAVELJZ LQS    L1G
+   XSQDW  BUZU
+ +[RSTM123 ]+
+       L1K
+       100%
+       K3000
+ +(T32 )+
+ M121X22
+469 +I II/I[SETM122 ]+
+ L1K LQS        LJZ
+   BUZU
+ T31 M23 X22 M122    M121
+472 +I II II II/I()+
+   HAVELQS LJZ     L1K
+   XSQDW BUZU     
+ T31 M122X23      K9000
+477 +I II II I(T33 )+
+   LJZ XSQDW     
+ T31 M122X23      K9000
+483 +I II II/I+(T34 )+
+   LJZ XSQDW    
+      +[RSTM23]+
+       HAVE
+       XSQDW
+      +[RSTM122 ]+
+LJZ
+ T33  
+491 +I I[SETM8 ]+
+ERROR
+ T34  
+493 +I I[SETM123 ]+
+L1K
+100%
+ M0 M5 X27      K9000
+495 +I II/II/I(T40 )+
+ AUTOWAITYCL     
+ RUN STOP
+ 	MOV	R0,#ADCDateMed
+		CLR	C
+		MOV	A,@R0
+		RRC	A
+		MOV	@R0,A
+		INC	R0
+		MOV	A,@R0
+		RRC	A
+		MOV	@R0,A
+ T40  
+501 +I I[SETM8 ]+
+ERROR
+ X16  K100
+503 +I I+(T41 )+
+ JJIN 
+ X20 
+ +I I+  +
+ LJSDW
+ X21 
+ +I I+  +
+ LS 
+ BUZU 
+ X22 
+ +I I+  +
+ LQS  
+ BUZU 
+ T41  
+510 +I I+[SETM8 ]+
+ ERROR
+ X11 
+ +I I+  +
+ OLLJB
+ X12 
+ +I I+  +
+ OLFSB 
+ M2  K24000
+514 +I I(T20 )+
+ ZLEN 
+ M2 X17
+518 +I II I+[SETM4 ]+
+ ZLENLSDW   XISI
+ M0  
+ +I/I+ +
+ AUTO 
+ RUN 
+ M8  
+ +I I+ +
+ ERROR 
+ M4       P  
+523 +I I+[MOVT20 D20]+
+ XISI  XISI
+ TIME
+ D20
+   +(T21 )+
+ M4 M230       M107
+532 +I II I()+
+ XISIQF>0       QCXG
+ T21  
+535 +I I+[SETM5 ]+
+ WAIT
+ STOP
+   +[RSTM4 ]+
+XISI
+ M5 M240       M115
+538 +I II I()+
+ WAITRF>0       RG
+ STOP 
+ X17 M0       K6000
+541 +I/II I(T22 )+
+ LSDWAUTO
+   RUN
+ X17 M0 M5      K6000
+546 +I/II II I(T23 )+
+ LSDWAUTOWAIT     
+   RUN STOP     
+ T22 M4
+552 +I I+I I[RSTM4 ]+
+   XISI       XISI
+ X5 
+ +I I+  +
+ TX>TS 
+ T23 M5
+556 +I I+I I[RSTM5 ]+
+   WAIT       WAIT
+   STOP       STOP
+  $SAVE
+$NOLIST
+;
+; BYTE Registers
+TL3     DATA    84H
+TH3     DATA  	85H
+CKCON	DATA    8EH
+CKCON1	DATA	8FH
+EXIF    DATA   	91H
+P4CONA  DATA   	92H
+P4CONB  DATA    93H
+P40AL   DATA   	94H
+P40AH   DATA   	95H
+P41AL   DATA  	96H
+P41AH   DATA   	97H
+P42AL   DATA   	9AH
+P42AH   DATA   	9BH
+P43AL   DATA   	9CH
+P43AH   DATA   	9DH
+NVMCON  DATA   	9EH
+CHPCON  DATA   	9FH
+PWMCON4 DATA  	0E7H
+EIE     DATA  	0E8H
+I2CON 	DATA    0E9H
+I2ADDR  DATA 	0EAH
+NVMADDRH  DATA 	0EBH
+I2DAT 	DATA    0ECH
+I2STATUS  DATA 	0EDH
+I2CLK 	DATA    0EEH
+I2TIMER DATA	0EFH
+SPCR    DATA  	0F3H
+SPSR    DATA  	0F4H
+SPDR    DATA   	0F5H
+I2CSADEN  DATA 	0F6H
+EIPH    DATA  	0F7H
+EIP     DATA 	0F8H
+EIE1    DATA 	0F9H
+EIP1    DATA 	0FAH
+CCL0    DATA 	0FBH
+PCNTL   DATA 	0FBH
+CCH0    DATA 	0FCH
+PCNTH   DATA 	0FCH
+CCL1    DATA 	0FDH
+PLSCNTL DATA   	0FDH
+CCH1    DATA 	0FEH
+PLSCNTH DATA   	0FEH
+INTCTRL DATA	0FFH
+; BIT Registers
+; PSW
+F1      BIT    PSW.1
+; TCON
+; IE
+EADC    BIT    IE.6
+ET2     BIT    IE.5
+; IP
+PADC    BIT    IP.6
+PT2     BIT    IP.5
+; P0
+INT5    BIT    P0.7
+INT4    BIT    P0.6
+INT3    BIT    P0.5
+INT2    BIT    P0.4
+SS      BIT    P0.3
+SPCLK   BIT    P0.2
+MOSI    BIT    P0.1
+MISO    BIT    P0.0
+; P1
+ADC7    BIT    P1.7
+ADC6    BIT    P1.6
+ADC5    BIT    P1.5
+ADC4    BIT    P1.4
+ADC3    BIT    P1.3
+TXD1    BIT    P1.3
+ADC2    BIT    P1.2
+RXD1    BIT    P1.2
+ADC1    BIT    P1.1
+BRAKE   BIT    P1.1
+ADC0    BIT    P1.0
+T2      BIT    P1.0
+; P2
+SDA     BIT    P2.7
+SDL     BIT    P2.6
+PWM5    BIT    P2.5
+PWM4    BIT    P2.4
+PWM3    BIT    P2.3
+PWM2    BIT    P2.2
+PWM1    BIT    P2.1
+PWM0    BIT    P2.0
+; P3
+IC1     BIT    P3.5
+QEB     BIT    P3.5
+TO      BIT    P3.4
+TCO     BIT    P3.4
+QEA     BIT    P3.4
+TXD0    BIT    P3.1
+RXD0    BIT    P3.0
+; SCON1
+SM0_1   BIT    SCON1.7
+FE_1    BIT    SCON1.7
+SM1_1   BIT    SCON1.6
+SM2_1   BIT    SCON1.5
+REN_1   BIT    SCON1.4
+TB8_1   BIT    SCON1.3
+RB8_1   BIT    SCON1.2
+TI_1    BIT    SCON1.1
+RI_1    BIT    SCON1.0
+; T2CON
+TF2     BIT    T2CON.7
+EXF2    BIT    T2CON.6
+RCLK    BIT    T2CON.5
+TCLK    BIT    T2CON.4
+EXEN2   BIT    T2CON.3
+TR2     BIT    T2CON.2
+C_T2    BIT    T2CON.1
+CP_RL2  BIT    T2CON.0
+; WDCON
+POR     BIT    WDCON.6
+WDIF    BIT    WDCON.3
+WTRF    BIT    WDCON.2
+EWT     BIT    WDCON.1
+RWT     BIT    WDCON.0
+; EIE
+EWDI	BIT    EIE.4	   		
+; EIP
+		BitLed		EQU	20H			;		
+SetLed		EQU	04H			;
+		BitLedSteady	EQU	02H			;		BitLedZero	EQU	03H			;
+		YellowLed 	EQU	01H	        	;
+		RedLed		EQU	00H        		;
+	
+                					
+		BitOddEven	EQU	08H
+                BitWgFirst	EQU	BitOddEven+1
+                BitOddEven1	EQU	BitWgFirst+1
+                BitWgFirst1	EQU	BitOddEven1+1
+                BitWg1YX	EQU	BitWgFirst1+1		;
+                BitWg2YX	EQU	BitWg1YX+1		;
+                MEM_ERR		EQU	BitWg2YX+1
+		ESBit		EQU	MEM_ERR+1
+		ES1Bit		EQU	ESBit+1
+		GssHighSigh	EQU	ES1Bit+1
+	
+                IntAddAd        EQU     08H
+                IntCount        EQU     09H
+		
+		Zero		EQU	30H
+		Slope		EQU	Zero+3
+		Gradutor	EQU	Slope+4
+		DotNum		EQU	Gradutor+1
+		ZeroLimit	EQU	DotNum+1
+		FreqSteadyLimit	EQU	ZeroLimit+1
+		SPAN		EQU	FreqSteadyLimit+2		;
+		GssZero		EQU	SPAN+4				;
+		GssSlope	EQU	GssZero+2			;
+		MachineNo	EQU	GssSlope+4
+		GssHighSlope	EQU	MachineNo+1
+		CheckSum	EQU	GssHighSlope+4
+		SUBB	A,DotNum
+		MOV	R0,A
+		MOV	A,@R0
+		ADD	A,#10H
+		MOV	@R0,A
+		MOV	Disp1,#8
+		MOV	R0,#Slope
+		MOV	R1,#FWORK1
+		MOV	R2,#4
+		CALL	DataTran
+		CALL	BinaryToFloat1
+		CALL	FloatDiv1
+		MOV	R0,#FWORK1
+		MOV	R1,#Slope
+		MOV	R2,#4
+		CALL	DataTran
+		SETB    Bell
+		MOV	M,#25
+		LCALL	DELAY_XS
+		CLR	Bell
+		RET
+GssSet_KEY:	
+		MOV	A,GssSet_Bit
+		JB	ACC.0,GssSet_KEY6
+		JNB	WeighSet_Bit,GssSet_KEY6
+GssSet_KEY2:
+		MOV	A,FunctionNo
+		JNZ	GssSet_KEY3
+		MOV	FunctionNo,#09H
+		JMP	GssSet_KEY4
+GssSet_KEY3:
+		CJNE	A,#09H,GssSet_KEY5
+		INC	FunctionNo
+		JMP	GssSet_KEY4
+GssSet_KEY5:	CJNE	A,#0AH,GssSet_KEY6
+		MOV	FunctionNo,#00H
+		JMP	GssSet_KEY4
+GssSet_KEY4:
+		SETB    Bell
+		MOV	M,#25
+		LCALL	DELAY_XS
+		CLR	Bell
+GssSet_KEY6:
+		RET
+GssQure_Key:
+		MOV	A,GssSet_Bit
+		JB	ACC.0,GssQure_Key6
+		JNB	WeighSet_Bit,GssQure_Key6
+		MOV	A,FunctionNo
+		JZ	GssSet_Key6
+		CJNE	A,#09H,GssQure_Key1
+		JMP	Zero_Key
+GssQure_Key1:
+		CJNE	A,#0AH,GssQure_Key6
+		JMP	Qure_Key
+GssQure_Key6:
+		RET
+Zero_Key:
+		MOV	R0,#ADCDate
+		MOV	GssZero,@R0
+		INC	R0
+		MOV	GssZero+1,@R0
+		MOV	R0,#Zero
+		MOV	R2,#27
+		MOV	A,#00H
+Zero_Key1:		
+		ADD	A,@R0
+		INC	R0
+		DJNZ	R2,Zero_Key1
+		MOV	CheckSum,A
+		MOV	R0,#Zero
+		MOV	R1,#NVMZero
+		MOV	R2,#28
+		CALL	EepromSWrite
+		MOV	R0,#ADCDate
+		MOV	R1,#FWORK1+1
+		MOV	@R1,#00H
+		INC	R1
+		MOV	A,@R0
+		MOV	@R1,A
+		INC	R0
+		INC	R1
+		MOV	A,@R0
+		MOV	@R1,A	
+		CALL	BinToBcd1
+		MOV	R0,#Fwork1+3
+		LCALL	SendDisp
+		MOV	Disp1,#09H
+		MOV	A,Disp2
+		JNZ	Zero_Key3
+		MOV	Disp2,#1CH
+		MOV	A,Disp3
+		JNZ	Zero_Key3
+		MOV	Disp3,#1CH
+		MOV	A,Disp4
+		JNZ	Zero_Key3
+		MOV	Disp4,#1CH
+		MOV	A,Disp5
+		JNZ	Zero_Key3
+		MOV	Disp5,#1CH
+Zero_Key3:
+		CALL	XianShi
+		SETB    Bell
+		MOV	M,#25
+		LCALL	DELAY_XS
+		CLR	Bell
+		MOV	M,#250
+		LCALL	DELAY_XS
+		MOV	Disp2,#1CH
+		MOV	Disp3,#1CH
+		MOV	Disp4,#22H
+		MOV	Disp5,#0EH
+		MOV	Disp6,#05H
+		CALL	XianShi
+		MOV	M,#250
+		LCALL	DELAY_XS
+		RET
+Qure_Key:		
+		MOV	R0,#ADCDate
+		MOV	R1,#FWORK1+1
+		MOV	@R1,#00H
+		INC	R1
+		MOV	A,@R0
+		MOV	@R1,A
+		INC	R0
+		INC	R1
+		MOV	A,@R0
+		MOV	@R1,A	
+		MOV	R0,#GssZero
+		MOV	R1,#FWORK2+1
+		MOV	@R1,#00H
+		INC	R1
+		MOV	A,@R0
+		MOV	@R1,A
+		INC	R0
+		INC	R1
+		MOV	A,@R0
+		MOV	@R1,A
+		MOV	R0,#FWORK1
+		MOV	R1,#FWORK2
+		MOV	R7,#3
+		CALL	IntSubb
+		CALL	BinaryToFloat1
+		MOV	R0,#FWORK1
+		MOV	A,@R0
+		XRL	A,#80H
+		JNZ	Qure_Key2
+		RET
+Qure_Key2:
+		MOV	R0,#SendWeight
+		MOV	R1,#FWORK2
+		MOV	R2,#4
+		CALL	DataTran
+		CALL	FloatDiv2
+		MOV	R0,#FWORK2
+		MOV	R1,#GssSlope
+		MOV	R2,#4
+		CALL	DataTran
+		MOV	R0,#ADCDate
+		MOV	R1,#FWORK1+1
+		MOV	@R1,#00H
+		INC	R1
+		MOV	A,@R0
+		MOV	@R1,A
+		INC	R0
+		INC	R1
+		MOV	A,@R0
+		MOV	@R1,A	
+		MOV	R0,#GssZero
+		MOV	R1,#FWORK2+1
+		MOV	@R1,#00H
+		INC	R1
+		MOV	A,@R0
+		MOV	@R1,A
+		INC	R0
+		INC	R1
+		MOV	A,@R0
+		MOV	@R1,A
+		MOV	R0,#FWORK1
+		MOV	R1,#FWORK2
+		MOV	R7,#3
+		CALL	IntSubb
+		CALL	BinaryToFloat1
+		MOV	R0,#FWORK1
+		MOV	A,@R0
+		XRL	A,#80H
+		JNZ	Qure_Key4
+		RET
+Qure_Key4:
+		MOV	R1,#FWORK2
+		MOV	@R1,#04H
+		INC	R1
+		MOV	@R1,#78H
+		INC	R1
+		MOV	@R1,#00H
+		INC	R1
+		MOV	@R1,#00H
+		CALL	FloatDiv2
+		MOV	R0,#FWORK2
+		MOV	R1,#GssHighSlope
+		MOV	R2,#4
+		CALL	DataTran
+		MOV	R0,#Zero
+		MOV	R2,#27
+		MOV	A,#00H
+Qure_Key1:		
+		ADD	A,@R0
+		INC	R0
+		DJNZ	R2,Qure_Key1
+		MOV	CheckSum,A
+		MOV	R0,#Zero
+		MOV	R1,#NVMZero
+		MOV	R2,#28
+		CALL	EepromSWrite
+		MOV	R0,#ADCDate
+		MOV	R1,#FWORK1+1
+		MOV	@R1,#00H
+		INC	R1
+		MOV	A,@R0
+		MOV	@R1,A
+		INC	R0
+		INC	R1
+		MOV	A,@R0
+		MOV	@R1,A	
+		CALL	BinToBcd1
+		MOV	R0,#Fwork1+3
+		LCALL	SendDisp
+		MOV	Disp1,#0AH
+		MOV	A,Disp2
+		JNZ	Qure_Key3
+		MOV	Disp2,#1CH
+		MOV	A,Disp3
+		JNZ	Qure_Key3
+		MOV	Disp3,#1CH
+		MOV	A,Disp4
+		JNZ	Qure_Key3
+		MOV	Disp4,#1CH
+		MOV	A,Disp5
+		JNZ	Qure_Key3
+		MOV	Disp5,#1CH
+Qure_Key3:
+		CALL	XianShi
+		SETB    Bell
+		MOV	M,#25
+		LCALL	DELAY_XS
+		CLR	Bell
+		MOV	M,#250
+		LCALL	DELAY_XS
+		MOV	Disp2,#1CH
+		MOV	Disp3,#1CH
+		MOV	Disp4,#22H
+		MOV	Disp5,#0EH
+		MOV	Disp6,#05H
+		CALL	XianShi
+		MOV	M,#250
+		LCALL	DELAY_XS
+		RET
+MEM_STOP:
+		CLR           EpromSda
+		LCALL         WAIT
+		SETB          EpromScl
+		LCALL         WAIT
+		SETB          EpromSda
+		LCALL         WAIT
+		CLR           EpromScl
+		RET
+MEM_START:
+		SETB          EpromSda
+		LCALL         WAIT
+		SETB          EpromScl
+		LCALL         WAIT
+		CLR           EpromSda
+		LCALL         WAIT
+		CLR           EpromScl
+		LCALL	      MEM_WRITE8BITS
+		RET
+MEM_WRITE8BITS:
+		MOV	      R7,#08H
+MEM_WRITE80:
+                MOV           A,R5
+                RLC           A
+                MOV           R5,A
+                JC            MEM_WRITE81
+                CLR           EpromSda
+                AJMP          MEM_WRITE82
+MEM_WRITE81:    SETB          EpromSda
+                CALL         WAIT
+MEM_WRITE82:    SETB          EpromScl
+		CALL         WAIT
+		CLR           EpromScl
+		DJNZ          R7,MEM_WRITE80
+                ;SETB          EpromSda
+		SETB          EpromScl
+		LCALL         WAIT
+                MOV           C,EpromSda
+		CLR           EpromScl
+                CALL         WAIT
+		SETB          EpromSda
+		RET
+MEM_READ8BITS:
+                SETB          EpromSda
+                MOV	      R7,#08H
+MEM_READ80:
+		SETB          EpromScl
+                CALL         WAIT
+                MOV           C,EpromSda
+                MOV           A,R4
+                RLC           A
+                MOV           R4,A
+		CLR           EpromScl
+		DJNZ          R7,MEM_READ80
+                DJNZ          R2,MEM_READ81
+                SETB          EpromSda
+                AJMP          MEM_READ82
+MEM_READ81:     CLR           EpromSda
+                CALL         WAIT
+MEM_READ82:
+		SETB          EpromScl
+		ACALL         WAIT
+		CLR           EpromScl
+		RET
+WAIT:
+                NOP
+                NOP
+                RET
+EepromSRead:
+ 		MOV		R3,#03H
+MMR2:
+		MOV		R5,#0A0H
+		CALL		MEM_START       ;
+                JC              MMRERR
+                MOV             A,R1
+                MOV             R5,A
+		CALL		MEM_WRITE8BITS
+                JC              MMRERR
+		MOV		R5,#0A1H
+		CALL		MEM_START
+		JC              MMRERR
+                MOV             A,R1
+                MOV             R5,A
+MMR1:		CALL		MEM_READ8BITS
+                MOV             A,R4
+                MOV             @R0,A
+		INC		R0
+		INC		R1
+		MOV		A,R2
+                JNZ             MMR1
+		CALL  		MEM_STOP
+                CLR             MEM_ERR
+		JMP		MMREND
+MMRERR:
+                DJNZ            R3,MMR2
+MMRERR1:
+		SETB		MEM_ERR
+MMREND:
+		RET
+MWP2:
+		JMP		MWP4
+MWP3:
+		CALL		MEM_STOP
+		MOV		M,#2
+		LCALL		DELAY_XS
+                DJNZ            R2,MWP4
+		CLR		MEM_ERR
+		JMP		MWPEND
+MWP4:
+		MOV		R5,#0A0H
+		CALL		MEM_START       ;
+                JC              MMRERR
+                MOV             A,R1
+                MOV             R5,A
+		CALL		MEM_WRITE8BITS
+		JC		MMRERR
+MWP1:
+                MOV             A,@R0
+                MOV             R5,A
+		CALL		MEM_WRITE8BITS
+		JC		MMRERR
+		INC		R0
+		INC		R1
+                MOV             A,R1
+		ANL		A,#07H
+                JZ              MWP3
+MWP5:
+                DJNZ            R2,MWP1
+		CALL		MEM_STOP
+		MOV		M,#2
+		LCALL		DELAY_XS
+		CLR		MEM_ERR
+		AJMP		MWPEND
+MWPERR:
+		DJNZ		R3,MWP2
+MWPERR1:
+		SETB		MEM_ERR
+MWPEND:
+		RET
+		MOV	A,@R0
+		MOV	NVMDAT,A
+		MOV	A,R1
+		MOV     NVMADDRL,A
+		ORL	NVMCON,#60H
+NVMWrite2:
+		MOV	A,NVMCON
+		JNB	ACC.0,NVMWrite2
+		ANL	NVMCON,#09EH		;
+		INC	R1
+		DJNZ	R2,NVMWrite3
+		RET
+		MOV	XRAMAH,#00H
+NVMRead1:
+		MOVX	A,@R1
+		MOV	@R0,A
+		INC	R0
+		INC	R1
+		DJNZ	R2,NVMRead1
+		ANL	NVMCON,#0DFH
+		RET
+GssWeighAccount:
+		JB	WeighSet_Bit,GssWeighAccount2
+		RET
+GssWeighAccount2:
+		MOV	A,GssSet_Bit
+		JB	ACC.0,GssWeighAccount1
+		RET
+GssWeighAccount1:
+		MOV	R0,#ADCDate		;
+		MOV	R1,#FWORK1+1
+		MOV	@R1,#00H
+		INC	R1
+		MOV	R2,#2
+		CALL	DataTran
+		MOV	R0,#GssZero			;
+		MOV	R1,#FWORK2+1
+		MOV	@R1,#00H
+		INC	R1
+		MOV	R2,#2
+		CALL	DataTran
+		MOV	R0,#FWORK1
+		MOV	R1,#FWORK2		
+		MOV	R7,#3
+		CALL	IntSubb			;
+		CALL	BinaryToFloat1
+		MOV	R0,#GssSlope
+		MOV	R1,#FWORK2
+		MOV	R2,#4
+		CALL	DataTran
+		CALL	FloatMul1			;K(Y-b)
+		MOV	R0,#SendWeight
+		MOV	R1,#FWORK2
+		MOV	R2,#4
+		CALL	DataTran
+		CALL	FloatSub2
+		MOV	R0,#FWORK2
+		MOV	R1,#SendWeight
+		MOV	R2,#4
+		CALL	DataTran
+		MOV	R0,#ADCDate		;
+		MOV	R1,#FWORK1+1
+		MOV	@R1,#00H
+		INC	R1
+		MOV	R2,#2
+		CALL	DataTran
+		MOV	R0,#GssZero			;
+		MOV	R1,#FWORK2+1
+		MOV	@R1,#00H
+		INC	R1
+		MOV	R2,#2
+		CALL	DataTran
+		MOV	R0,#FWORK1
+		MOV	R1,#FWORK2		
+		MOV	R7,#3
+		CALL	IntSubb			;
+		CALL	BinaryToFloat1
+		MOV	R0,#GssHighSlope
+		MOV	R1,#FWORK2
+		MOV	R2,#4
+		CALL	DataTran
+		CALL	FloatMul1			;K(Y-b)
+		MOV	R0,#FWORK1+1
+		MOV	A,@R0
+		CLR	GssHighSigh
+		JNB	ACC.7,GssWeighAccount3
+		SETB	GssHighSigh
+		CALL	FloatNotAdd11
+GssWeighAccount3:
+		CALL	FloatToBinary451
+		MOV	R0,#FWORK1+3
+		MOV	GssHigh,@R0
+		MOV	A,@R0
+		SUBB	A,#0FH
+		JC	GssWeighAccount4
+		MOV	GssHigh,#0FH
+GssWeighAccount4:
+		RET
+ADC_OUTint:			
+		MOV	A,ADCCON
+		JNB	ACC.4,ADC_OUTint1
+		MOV	A,ADCH
+		MOV	R0,#ADCDateNew
+		MOV	@R0,A
+		MOV	R2,#6
+ADC_OUTint2:
+		CLR	C
+		MOV	R0,#ADCDateNew
+		MOV	A,@R0
+		RRC	A
+		MOV	@R0,A
+		INC	R0
+		MOV	A,@R0
+		RRC	A
+		MOV	@R0,A
+		DJNZ	R2,ADC_OUTint2
+		MOV	A,ADCL
+		ANL	A,#3
+		ORL	A,@R0
+		MOV	@R0,A
+		MOV	R0,#ADCDateNew
+		MOV	R1,#ADCDate
+		MOV	R2,#2
+		CALL	DataTran
+ADC_OUTint1:
+		RET
+ADC_OUT:			
+		MOV	A,ADCCON
+		JNB	ACC.4,ADC_OUT1
+		MOV	A,ADCH
+		MOV	R0,#ADCDateNew
+		MOV	@R0,A
+		MOV	R2,#6
+ADC_OUT2:
+		CLR	C
+		MOV	R0,#ADCDateNew
+		MOV	A,@R0
+		RRC	A
+		MOV	@R0,A
+		INC	R0
+		MOV	A,@R0
+		RRC	A
+		MOV	@R0,A
+		DJNZ	R2,ADC_OUT2
+		MOV	A,ADCL
+		ANL	A,#3
+		ORL	A,@R0
+		MOV	@R0,A
+		MOV	R0,#ADCDateNew
+		MOV	R1,#FWORK1+1
+		MOV	@R1,#00H
+		INC	R1
+		MOV	R2,#2
+		CALL	DataTran
+	
+     	MOV	R0,#ADCDateMed
+		MOV	R1,#FWORK2+1
+		MOV	@R1,#00H
+		INC	R1
+		MOV	R2,#2
+		CALL	DataTran
+		MOV	R0,#FWORK1
+		MOV	R1,#FWORK2		
+		MOV	R7,#3
+		CALL	IntAdd
+		MOV	R0,#FWORK1+2
+		MOV	R1,#ADCDateMed
+		MOV	R2,#2
+		CALL	DataTran
+		DJNZ	ADCDateNo,ADC_OUT1
+		MOV	R2,#3
+ADC_OUT3:
+		MOV	R0,#ADCDateMed
+		CLR	C
+		MOV	A,@R0
+		RRC	A
+		MOV	@R0,A
+		INC	R0
+		MOV	A,@R0
+		RRC	A
+		MOV	@R0,A
+		DJNZ	R2,ADC_OUT3
+		MOV	R0,#ADCDateMed
+		MOV	R1,#ADCDate
+		MOV	R2,#2
+		CALL	DataTran
+		MOV	R0,#ADCDateMed
+		MOV	@R0,#00H
+		INC	R0
+		MOV	ADCDateNo,#08H
+		MOV	A,ADCCON
+		ANL	A,#0EFH
+		MOV	ADCCON,A
+		MOV	M,#12
+		CALL	DELAY_XUS
