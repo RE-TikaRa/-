@@ -29,3 +29,6 @@ dist/
 *.tmp
 *.bak
 *.swp
+
+# Runtime data
+/data/*.db
