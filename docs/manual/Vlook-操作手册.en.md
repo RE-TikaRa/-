@@ -1,0 +1,225 @@
+---
+title: Assembly Process Simulation and Optimization Validation Platform Manual
+author: TikaRa
+description: Welcome to ALp_Studio
+date: January 30, 2026
+vlook-cc-bottom-left: Left Information<br>Here
+vlook-cc-bottom-right: Right Information<br>Here
+vlook-welcome: <strong>Resources in preparation. Welcome to ALp_Studio</strong>
+vlook-gray-mode: 12-13:National Memorial Day@zh;04-05:Qingming Festival
+---
+
+###### ~Manual~<br>Assembly Process Simulation and Optimization Validation Platform<br>──<br><u>Version: 2.0</u><br>*Version: `2.0`*<br><br><br>**Re-TikaRa**<br>*ALp_Studio*
+
+[TOC]
+
+# Assembly Process Simulation and Optimization Validation Platform Manual
+
+## Introduction
+The Assembly Process Simulation and Optimization Validation Platform contains relevant simulation and optimization data, establishes a rational data handling model, and provides complete data interaction and processing. It can address data, interaction, and process handling at any time, forming a reliable data interaction management process.
+
+## System Information
+
+Version: V2.0
+
+Finalized date: January 30, 2026
+
+Author: TikaRa / ALp_Studio
+
+## Interface Overview
+
+### Home
+![Home](https://s2.loli.net/2026/01/30/lvdtc8iwGzM91JC.png)
+
+System startup screen.
+
+### History
+![History](https://s2.loli.net/2026/01/30/HY6arMGAk8uBzDf.png)
+
+- Query system runtime data within $60\,\text{d}$.
+- 1 record every $1\,\text{min}$.
+- Support time-range filtering and export to CSV / Excel / JSON.
+
+### Alarms
+![Alarms](https://s2.loli.net/2026/01/30/8A7Bmobflp4XaqG.png)
+
+- View current alarms.
+- Click “Alarm Mute” to silence alarm sound (note: it does not clear all alarms).
+- Support export to CSV / Excel / JSON.
+
+### Operation
+![Operation](https://s2.loli.net/2026/01/30/BlZ8kSsLOqz9FdC.png)
+
+This page controls device start/stop and shows current device status and data.
+
+### Parameters
+![Parameters](https://s2.loli.net/2026/01/30/BbDX8yNGT7grcwY.png)
+
+Parameter settings page for key process parameters and limits.
+
+## Device Switch Description
+All start/stop conditions below must be satisfied simultaneously to operate the device.
+
+### Oil Pump
+- Start conditions: none.
+- Stop conditions:
+  1. After turning off the atomizer, a countdown appears under the text on the operation page. Before the countdown ends, the atomizer cannot be restarted and the oil pump cannot be stopped.
+  2. The oil pump cannot be stopped while the atomizer is running.
+
+### Cooling Fan
+- Start conditions: none.
+- Stop conditions: none.
+- Start/stop together with the oil pump.
+
+### Atomizer
+- Start conditions:
+  1. After the oil pump starts, a countdown appears under the text on the operation page. The atomizer can be started only after the countdown ends.
+  2. If atomizer vibration upper-limit alarm occurs, it cannot start. Click “Alarm Mute” and wait for the alarm text to turn blue before starting.
+  3. If the blower or induced draft fan is already on, the atomizer cannot start.
+  4. Oil pressure high alarm prevents start.
+  5. Oil pressure low alarm prevents start.
+  6. Oil temperature over-limit prevents start.
+- Stop conditions: can stop only when the feed pump is stopped.
+- Note: feed pump has three states: stop (red), standby (yellow), run (green).
+
+### Blower
+- Start conditions:
+  1. After the atomizer starts, a countdown appears under the text on the operation page. Start only after the countdown ends.
+- Stop conditions:
+  1. Can stop only when heating is off.
+  2. Can stop only when the induced draft fan is off.
+- Note: heating has three states: stop (red), standby (yellow), run (green).
+
+### Induced Draft Fan
+- Start conditions:
+  1. Can start only after the blower is on.
+- Stop conditions: none.
+
+### Heating
+- Start conditions:
+  1. With blower and induced draft fan on, main tower pressure difference must satisfy $\Delta P \in [-0.2,-0.6]$ to start heating.
+  2. During warm-up, if either outlet or inlet temperature alarms, heating pauses to standby (yellow). After the alarm clears, heating restarts; you may manually stop it if needed.
+  3. If any of the following alarms occur, heating will shut down automatically: induced draft fan alarm, blower alarm, oil pump alarm, atomizer alarm, feed pump alarm, low liquid flow, atomizer vibration upper-limit alarm, exhaust temperature over-limit, spray valve fault, feed valve fault, oil temperature over-limit, atomizer oil pressure high, atomizer oil pressure low.
+- Stop conditions: none.
+- Direct heating: inlet temperature setpoint equals “Direct Heating Inlet Temperature” in parameters.
+
+### Feed Pump Valve
+- Start conditions:
+  1. Cannot start if feed valve fault is active (click “Alarm Mute” and wait for text to turn blue).
+  2. Cannot start if spray water valve fault is active (click “Alarm Mute” and wait for text to turn blue).
+- Stop conditions:
+  1. Can stop only when the feed pump is stopped (red).
+
+### Feed Pump
+- Start conditions:
+  1. Can start only when the feed pump valve is open.
+  2. After start, if inlet temperature is below the “Feed Pump Start Temperature” setpoint, it stays in standby (yellow). When conditions are met, it switches to run (green) automatically.
+  3. With “Low liquid flow” alarm, it switches to stop (red). Click “Alarm Mute” and wait for text to turn blue before restarting.
+- Stop conditions: none.
+
+### Dust Cleaning / Air Hammer / Rotary Airlock Fan
+This is the discharge system. Start before startup and stop last during shutdown; operate as needed on site.
+
+### Electric Hoist / Mixer Motor / Fire Pump
+Turn on as needed on site.
+
+### Mixer Motor Fan
+Start/stop together with the mixer motor.
+
+### Slide Gate Valve
+
+Open/close to decide whether to use the waste heat recovery heat exchanger.
+
+## Parameter Settings
+
+![Parameters](https://s2.loli.net/2026/01/30/BbDX8yNGT7grcwY.png)
+
+### Parameter List (V2.0)
+
+| Category | Items |
+| --- | --- |
+| Frequency | Atomizer frequency, blower frequency, induced draft fan frequency |
+| Feed pump | Feed frequency, manual frequency, auto upper/lower limits, spray ash / discharge interval |
+| Temperature | Forced spray temperature, feed pump start inlet/outlet temperature, feed pump stop temperature, outlet temperature setpoint, emergency fan start/auto start temperature, fan stop temperature, atomizer oil temperature |
+| Pressure / Time / Concentration | Feed liquid pressure upper limit, dust concentration upper limit, atomizer vibration upper limit, dust cleaning work time, start/stop spray time, tank weight lower limit, mixer reminder tank weight |
+| Alarm thresholds | Blower/induced draft fan fault frequency upper/lower limits, inlet/outlet temperature upper/lower limits, atomizer fault frequency, atomizer oil pressure upper limit, atomizer working time |
+| Electric heater enable | 1#~10# electric heater enable switches |
+
+Only some parameters are explained below; obvious parameters are omitted.
+
+### Blower Frequency
+- Recommended: $30\sim50$.
+
+### Induced Draft Fan Frequency
+- Recommended: $30\sim50$.
+
+### Atomizer Frequency
+- Recommended: $30\sim50$.
+
+### Atomizer Vibration Upper Limit
+- Upper-limit alarm when vibration exceeds this value.
+- If spraying material, spray water for $t \ge 40\,\text{min}$, then switch back after vibration stabilizes.
+- If spraying water, lower inlet temperature appropriately until vibration returns to normal.
+- Recommended: $250$.
+
+### Bag Interval Time
+Set the working interval time between bags based on site conditions.
+
+### Inlet Temperature
+Setpoint for inlet temperature.
+
+### Forced Spray Temperature
+When spraying material normally, if outlet temperature exceeds this setpoint, an outlet-high alarm is triggered and water spray is forced.
+
+### Feed Pump Start Inlet/Outlet Temperature
+The feed pump enters run state only when inlet/outlet temperature exceeds this setpoint.
+
+### Outlet Temperature
+Setpoint for outlet temperature.
+
+### Emergency Fan Start Temperature
+When outlet temperature $T_{out} > T_{set}$, the emergency fan starts.
+
+### Feed Liquid Pressure Upper Limit
+When feed liquid pressure $P > P_{set}$, a high-pressure alarm occurs. Check whether the filter is blocked.
+
+### Atomizer Oil Temperature
+Atomizer oil temperature setpoint. If displayed temperature exceeds the setpoint, check cooling water, oil level, and pump piping.
+
+### Start/Stop Spray Time
+In one-click mode, this sets the spray time for start/stop; spraying or shutdown occurs after time ends.
+
+### Fan Stop Temperature
+In one-click mode, fans can stop automatically only when outlet temperature is below this setpoint.
+
+### Feed Pump Stop Temperature
+In one-click shutdown, the feed pump stops automatically when outlet temperature is below this setpoint.
+
+### Tank Weight Lower Limit
+Alarm when tank weight is below the lower limit.
+
+## Startup Procedure
+### Pre-Start Checks
+1. Check for abnormal alarms on the alarm page.
+2. Check if the water tank has water.
+3. Open feed pump valve and ensure spray water/ feed valves can switch properly.
+4. Verify the manual valve before the feed pump matches the selected feed pump number on the operation page.
+5. Confirm feed mode is automatic.
+6. Confirm heating mode.
+
+### Startup Steps
+1. Turn on dust cleaning, air hammer, rotary airlock fan, and collecting screw.
+2. Turn on oil pump and cooling fan (countdown appears under atomizer text).
+3. Turn on atomizer, feed pump valve, and feed pump (feed pump shows yellow standby; blower and induced draft fan countdown appears).
+4. Turn on blower and induced draft fan (when $\Delta P \in [-0.2,-0.6]$, proceed to step 5).
+5. Turn on heating (set temperature as needed).
+6. Spray water for $t \ge 40\,\text{min}$, then switch to material spray.
+
+### Shutdown Steps
+1. Spray water for $t \ge 40\,\text{min}$.
+2. Turn off heating.
+3. When outlet temperature is below “Feed Pump Start Temperature”, feed pump switches to standby (yellow); turn off feed pump and valve.
+4. After $t \ge 3\,\text{min}$, turn off atomizer (countdown appears under oil pump).
+5. After countdown ends, turn off cooling fan and oil pump.
+6. When inlet temperature satisfies $T_{in} < 50\,^{\circ}\mathrm{C}$, turn off induced draft fan and blower in sequence.
+7. Turn off dust cleaning, air hammer, rotary airlock fan, and collecting screw.
