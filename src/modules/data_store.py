@@ -22,6 +22,12 @@ class HistoryRecord:
     inlet_temp: float
     outlet_temp: float
     pressure_delta: float
+    dust_concentration: float
+    feed_pressure: float
+    atomizer_oil_pressure: float
+    blower_freq: float
+    induced_fan_freq: float
+    atomizer_freq: float
 
 
 class DataStore:
@@ -55,11 +61,33 @@ class DataStore:
                 ts TEXT NOT NULL,
                 inlet_temp REAL NOT NULL,
                 outlet_temp REAL NOT NULL,
-                pressure_delta REAL NOT NULL
+                pressure_delta REAL NOT NULL,
+                dust_concentration REAL NOT NULL DEFAULT 0,
+                feed_pressure REAL NOT NULL DEFAULT 0,
+                atomizer_oil_pressure REAL NOT NULL DEFAULT 0,
+                blower_freq REAL NOT NULL DEFAULT 0,
+                induced_fan_freq REAL NOT NULL DEFAULT 0,
+                atomizer_freq REAL NOT NULL DEFAULT 0
             );
             """
         )
+        self._ensure_history_columns()
         self._conn.commit()
+
+    def _ensure_history_columns(self) -> None:
+        assert self._conn is not None
+        existing = {row[1] for row in self._conn.execute("PRAGMA table_info(history)").fetchall()}
+        columns = {
+            "dust_concentration": "REAL NOT NULL DEFAULT 0",
+            "feed_pressure": "REAL NOT NULL DEFAULT 0",
+            "atomizer_oil_pressure": "REAL NOT NULL DEFAULT 0",
+            "blower_freq": "REAL NOT NULL DEFAULT 0",
+            "induced_fan_freq": "REAL NOT NULL DEFAULT 0",
+            "atomizer_freq": "REAL NOT NULL DEFAULT 0",
+        }
+        for name, ddl in columns.items():
+            if name not in existing:
+                self._conn.execute(f"ALTER TABLE history ADD COLUMN {name} {ddl}")
 
     def add_alarm(self, record: AlarmRecord) -> None:
         assert self._conn is not None
@@ -92,12 +120,31 @@ class DataStore:
     def add_history(self, record: HistoryRecord) -> None:
         assert self._conn is not None
         self._conn.execute(
-            "INSERT INTO history (ts, inlet_temp, outlet_temp, pressure_delta) VALUES (?, ?, ?, ?)",
+            """
+            INSERT INTO history (
+                ts,
+                inlet_temp,
+                outlet_temp,
+                pressure_delta,
+                dust_concentration,
+                feed_pressure,
+                atomizer_oil_pressure,
+                blower_freq,
+                induced_fan_freq,
+                atomizer_freq
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
             (
                 record.ts.isoformat(),
                 record.inlet_temp,
                 record.outlet_temp,
                 record.pressure_delta,
+                record.dust_concentration,
+                record.feed_pressure,
+                record.atomizer_oil_pressure,
+                record.blower_freq,
+                record.induced_fan_freq,
+                record.atomizer_freq,
             ),
         )
         self._conn.commit()
@@ -105,7 +152,14 @@ class DataStore:
     def list_history(self, limit: int = 500) -> List[HistoryRecord]:
         assert self._conn is not None
         rows = self._conn.execute(
-            "SELECT ts, inlet_temp, outlet_temp, pressure_delta FROM history ORDER BY id DESC LIMIT ?",
+            """
+            SELECT ts, inlet_temp, outlet_temp, pressure_delta,
+                   dust_concentration, feed_pressure, atomizer_oil_pressure,
+                   blower_freq, induced_fan_freq, atomizer_freq
+            FROM history
+            ORDER BY id DESC
+            LIMIT ?
+            """,
             (limit,),
         ).fetchall()
         return [
@@ -114,8 +168,14 @@ class DataStore:
                 inlet_temp=inlet,
                 outlet_temp=outlet,
                 pressure_delta=delta,
+                dust_concentration=dust,
+                feed_pressure=feed,
+                atomizer_oil_pressure=oil_p,
+                blower_freq=blower,
+                induced_fan_freq=induced,
+                atomizer_freq=atomizer,
             )
-            for ts, inlet, outlet, delta in rows
+            for ts, inlet, outlet, delta, dust, feed, oil_p, blower, induced, atomizer in rows
         ]
 
     def list_history_range(
@@ -124,7 +184,9 @@ class DataStore:
         assert self._conn is not None
         rows = self._conn.execute(
             """
-            SELECT ts, inlet_temp, outlet_temp, pressure_delta
+            SELECT ts, inlet_temp, outlet_temp, pressure_delta,
+                   dust_concentration, feed_pressure, atomizer_oil_pressure,
+                   blower_freq, induced_fan_freq, atomizer_freq
             FROM history
             WHERE ts BETWEEN ? AND ?
             ORDER BY id DESC
@@ -138,8 +200,14 @@ class DataStore:
                 inlet_temp=inlet,
                 outlet_temp=outlet,
                 pressure_delta=delta,
+                dust_concentration=dust,
+                feed_pressure=feed,
+                atomizer_oil_pressure=oil_p,
+                blower_freq=blower,
+                induced_fan_freq=induced,
+                atomizer_freq=atomizer,
             )
-            for ts, inlet, outlet, delta in rows
+            for ts, inlet, outlet, delta, dust, feed, oil_p, blower, induced, atomizer in rows
         ]
 
     def export_history(self, rows: Iterable[HistoryRecord], path: Path) -> None:
@@ -151,6 +219,12 @@ class DataStore:
                     "进风温度": row.inlet_temp,
                     "出风温度": row.outlet_temp,
                     "压差": row.pressure_delta,
+                    "粉尘浓度": row.dust_concentration,
+                    "料液压力": row.feed_pressure,
+                    "雾化器油压": row.atomizer_oil_pressure,
+                    "鼓风机频率": row.blower_freq,
+                    "引风机频率": row.induced_fan_freq,
+                    "雾化器频率": row.atomizer_freq,
                 }
                 for row in rows
             ]
@@ -163,7 +237,7 @@ class DataStore:
             wb = Workbook()
             ws = wb.active
             ws.title = "历史数据"
-            ws.append(["时间", "进风温度", "出风温度", "压差"])
+            ws.append(["时间", "进风温度", "出风温度", "压差", "粉尘浓度", "料液压力", "雾化器油压", "鼓风机频率", "引风机频率", "雾化器频率"])
             for row in rows:
                 ws.append(
                     [
@@ -171,6 +245,12 @@ class DataStore:
                         row.inlet_temp,
                         row.outlet_temp,
                         row.pressure_delta,
+                        row.dust_concentration,
+                        row.feed_pressure,
+                        row.atomizer_oil_pressure,
+                        row.blower_freq,
+                        row.induced_fan_freq,
+                        row.atomizer_freq,
                     ]
                 )
             wb.save(path)
@@ -178,7 +258,7 @@ class DataStore:
 
         with path.open("w", encoding="utf-8", newline="") as file:
             writer = csv.writer(file)
-            writer.writerow(["时间", "进风温度", "出风温度", "压差"])
+            writer.writerow(["时间", "进风温度", "出风温度", "压差", "粉尘浓度", "料液压力", "雾化器油压", "鼓风机频率", "引风机频率", "雾化器频率"])
             for row in rows:
                 writer.writerow(
                     [
@@ -186,6 +266,12 @@ class DataStore:
                         f"{row.inlet_temp:.2f}",
                         f"{row.outlet_temp:.2f}",
                         f"{row.pressure_delta:.3f}",
+                        f"{row.dust_concentration:.3f}",
+                        f"{row.feed_pressure:.3f}",
+                        f"{row.atomizer_oil_pressure:.3f}",
+                        f"{row.blower_freq:.2f}",
+                        f"{row.induced_fan_freq:.2f}",
+                        f"{row.atomizer_freq:.2f}",
                     ]
                 )
 

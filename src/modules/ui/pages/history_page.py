@@ -74,8 +74,21 @@ class HistoryPage(QWidget):
         filter_layout.addLayout(filter_row)
         filter_layout.addWidget(self.range_hint)
 
-        self.table = QTableWidget(0, 4)
-        self.table.setHorizontalHeaderLabels(["时间", "进风温度", "出风温度", "压差"])
+        self.table = QTableWidget(0, 10)
+        self.table.setHorizontalHeaderLabels(
+            [
+                "时间",
+                "进风温度",
+                "出风温度",
+                "压差",
+                "粉尘浓度",
+                "料液压力",
+                "雾化器油压",
+                "鼓风机频率",
+                "引风机频率",
+                "雾化器频率",
+            ]
+        )
         self.table.setAlternatingRowColors(True)
         self.table.horizontalHeader().setStretchLastSection(True)
 
@@ -137,3 +150,9 @@ class HistoryPage(QWidget):
             self.table.setItem(i, 1, QTableWidgetItem(f"{row.inlet_temp:.1f}"))
             self.table.setItem(i, 2, QTableWidgetItem(f"{row.outlet_temp:.1f}"))
             self.table.setItem(i, 3, QTableWidgetItem(f"{row.pressure_delta:.2f}"))
+            self.table.setItem(i, 4, QTableWidgetItem(f"{row.dust_concentration:.2f}"))
+            self.table.setItem(i, 5, QTableWidgetItem(f"{row.feed_pressure:.2f}"))
+            self.table.setItem(i, 6, QTableWidgetItem(f"{row.atomizer_oil_pressure:.2f}"))
+            self.table.setItem(i, 7, QTableWidgetItem(f"{row.blower_freq:.1f}"))
+            self.table.setItem(i, 8, QTableWidgetItem(f"{row.induced_fan_freq:.1f}"))
+            self.table.setItem(i, 9, QTableWidgetItem(f"{row.atomizer_freq:.1f}"))
